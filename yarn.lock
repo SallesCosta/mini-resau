@@ -470,7 +470,7 @@ rollup@^4.20.0:
     "@rollup/rollup-win32-x64-msvc" "4.24.3"
     fsevents "~2.3.2"
 
-sass@^1.77.2:
+sass@1.80.5:
   version "1.80.5"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.80.5.tgz#0ba965223d44df22497f2966b498cf5c453fae8f"
   integrity sha512-TQd2aoQl/+zsxRMEDSxVdpPIqeq9UFc6pr7PzkugiTx3VYCFPUaa3P4RrBQsqok4PO200Vkz0vXQBNlg7W907g==

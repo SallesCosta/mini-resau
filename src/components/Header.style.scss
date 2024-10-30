@@ -1,0 +1,22 @@
+@import "../_global.scss";
+
+.header-content {
+  height: 50px;
+  background: lime;
+
+  &__title {
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__nav-wrapper {
+    height: 29px;
+    background: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}

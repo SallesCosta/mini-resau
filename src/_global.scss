@@ -1,0 +1,54 @@
+// @import url("https://fonts.googleapis.com/css2?family=Rounded+Mplus+1c:wght@500900&display=swap");
+
+$black: #000000;
+$blue: #1820ef;
+$blue-hover: #6386ff;
+$red-ramen-go: #ff4e42;
+$yellow: #ffc024;
+$background-white: #fafaed;
+$gray: #c5c5c5;
+$text-white: #ffffff;
+$elipse: #730000;
+$inactive: #e0dbbf;
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+body {
+  background: $background-white;
+}
+
+.button {
+  align-items: center;
+  border: none;
+  background-color: $blue;
+  border-radius: 9999px;
+  color: $text-white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  transition: background-color 0.3s;
+  padding: 20px 16px;
+  width: 213px;
+
+  &:hover {
+    background-color: $blue-hover;
+  }
+}
+
+.disabled {
+  background-color: $gray;
+  cursor: not-allowed;
+
+  svg path {
+    fill: $text-white;
+  }
+}
