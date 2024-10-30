@@ -1,6 +1,9 @@
-import { HeaderElement } from "./components/Header"
 import "./main-style.scss"
-import { ChatPage, FeedPage, FriendsPage } from "./pages/FriendsPage"
+
+import { HeaderElement } from "./components/Header"
+import { FeedPage } from "./pages/FeedPage"
+import { FriendsPage } from "./pages/FriendsPage"
+import { ChatPage } from "./pages/ChatPage"
 
 const contentContainer = document.createElement("div")
 contentContainer.setAttribute("data-js", "contentContainer")
@@ -14,7 +17,6 @@ const renderPage = (page: "feed" | "chat" | "friends") => {
       friends: FriendsPage,
       chat: ChatPage,
     }[page] || FeedPage
-  console.log("compo", component)
 
   contentContainer.appendChild(component)
 }
