@@ -1,3 +1,5 @@
+@import "../_global.scss";
+
 .feed-page {
   height: 100dvh;
   padding: 14px 0;
@@ -7,9 +9,9 @@
 
   // ------------------- Card --------------
   &__card {
-    width: 100%;
-    background: orange;
+    background: tomato;
     display: flex;
+    // border-radius: 10px;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
@@ -23,7 +25,6 @@
     display: flex;
     gap: 6px;
     justify-content: flex-start;
-    // border: 2px solid red;
     max-width: 50%;
   }
 
@@ -48,6 +49,15 @@
   }
 
   &__comments-wrapper {
-    background: lime;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px;
+  }
+
+  &__comment {
+    background: $background-white;
+    padding: 2px 4px;
   }
 }

@@ -21,6 +21,14 @@ $breakpoint-desktop: 1024px;
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
+p,
+span,
+i,
+b,
+strong {
+  font-size: 14px;
+}
+
 body {
   background: $background-white;
 }

@@ -29,6 +29,7 @@ const createCard = (post: PostProps) => {
   post.comments.map((commentData) => {
     const Comment = dc("span")
     Comment.textContent = commentData.content
+    Comment.classList.add("feed-page__comment")
     CommentsWrapper.appendChild(Comment)
   })
 
