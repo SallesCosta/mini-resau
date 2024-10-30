@@ -1,8 +1,11 @@
 @import "../_global.scss";
 
 .header-content {
-  height: 50px;
   background: lime;
+
+  &__link-page {
+    cursor: pointer;
+  }
 
   &__title {
     width: auto;
