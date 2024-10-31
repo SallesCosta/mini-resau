@@ -6,16 +6,25 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  align-items: center;
+  width: 100%;
 
   // ------------------- Card --------------
   &__card {
     background: tomato;
     display: flex;
-    // border-radius: 10px;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
-    padding: 4px;
+    padding: 8px;
+    width: 100%;
+
+    @media (min-width: $breakpoint-mobile) {
+      width: 80%;
+    }
+    @media (min-width: $breakpoint-tablet) {
+      width: 600px;
+    }
   }
 
   // ------------------- Author Info (name & photo) --------------
@@ -40,12 +49,23 @@
 
   // ------------------- Post Content --------------
   &__post-image {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
     border-radius: 12px;
+    cursor: pointer;
     display: block;
+    height: 70px;
     margin: 0 auto;
+    object-fit: cover;
+    width: 70px;
+
+    @media (min-width: $breakpoint-mobile) {
+      width: 150px;
+      height: 150px;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      width: 400px;
+      height: 400px;
+    }
   }
 
   &__comments-wrapper {
@@ -53,7 +73,6 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 8px;
   }
 
   &__comment {

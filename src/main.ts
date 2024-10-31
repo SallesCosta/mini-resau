@@ -34,5 +34,4 @@ headerButtons.forEach((button) => {
 
 const App = document.querySelector<HTMLDivElement>('[data-js="app"]')
 App?.appendChild(HeaderElement)
-App?.appendChild(HeaderElement)
 App?.appendChild(contentContainer)

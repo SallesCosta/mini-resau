@@ -1,0 +1,26 @@
+@import "../_global.scss";
+
+.app-dark {
+  background: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9));
+}
+
+.modal {
+  text-align: center;
+  background-color: #fff;
+  border: 2px solid black;
+  width: 400px;
+  padding: 2rem 0rem;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.display-none {
+  display: none;
+}
+
+.display {
+  display: block;
+}
