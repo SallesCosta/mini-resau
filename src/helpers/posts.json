@@ -13,12 +13,97 @@
       {
         "comment_id": "aa",
         "comment_author_id": "98234",
-        "content": "no image?.."
+        "content": "no image?..",
+        "replies": []
       },
       {
         "comment_id": "a",
         "comment_author_id": "222",
-        "content": "yeah.. no images, no distracions"
+        "content": "yeah.. no images, no distracions",
+        "replies": [
+          {
+            "reply_id": "r1",
+            "reply_author_id": "7777",
+            "content": "You're right, focus on the content!"
+          },
+          {
+            "reply_id": "r2",
+            "reply_author_id": "8888",
+            "content": "Agreed, sometimes words are enough."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "post_id": 2,
+    "author": {
+      "author_id": "2222",
+      "first_name": "John",
+      "last_name": "Doe",
+      "photo": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    "image": "https://picsum.photos/600/900?random=2",
+    "content": "Starting the day with a new project! ",
+    "comments": [
+      {
+        "comment_id": "bb",
+        "comment_author_id": "3333",
+        "content": "Good luck! Can't wait to see it!",
+        "replies": [
+          {
+            "reply_id": "r5",
+            "reply_author_id": "1111",
+            "content": "Thanks! I'll keep you posted."
+          },
+          {
+            "reply_id": "r6",
+            "reply_author_id": "5555",
+            "content": "Best of luck, John!"
+          }
+        ]
+      },
+      {
+        "comment_id": "cc",
+        "comment_author_id": "4444",
+        "content": "Exciting! Keep us posted.",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "post_id": 3,
+    "author": {
+      "author_id": "849302",
+      "first_name": "Lorenskldjf",
+      "last_name": "Ipsum ipsum",
+      "photo": "https://randomuser.me/api/portraits/women/23.jpg"
+    },
+    "image": "https://picsum.photos/600/900?random=9",
+    "content": "lorem ipsum",
+    "comments": [
+      {
+        "comment_id": "aa",
+        "comment_author_id": "jfjfj",
+        "content": "yeah..",
+        "replies": []
+      },
+      {
+        "comment_id": "a",
+        "comment_author_id": "222",
+        "content": "yeah.. 2",
+        "replies": [
+          {
+            "reply_id": "r3",
+            "reply_author_id": "9999",
+            "content": "Interesting perspective. "
+          },
+          {
+            "reply_id": "r4",
+            "reply_author_id": "0000",
+            "content": "What do you think about this topic?"
+          }
+        ]
       }
     ]
   },
@@ -36,58 +121,25 @@
       {
         "comment_id": "aa",
         "comment_author_id": "jfjfj",
-        "content": "yeah.."
+        "content": "yeah..",
+        "replies": []
       },
       {
         "comment_id": "a",
         "comment_author_id": "222",
-        "content": "yeah.. 2"
-      }
-    ]
-  },
-  {
-    "post_id": 2,
-    "author": {
-      "author_id": "2222",
-      "first_name": "John",
-      "last_name": "Doe",
-      "photo": "https://randomuser.me/api/portraits/men/32.jpg"
-    },
-    "image": "https://picsum.photos/600/900?random=2",
-    "content": "Starting the day with a new project! 🚀",
-    "comments": [
-      {
-        "comment_id": "bb",
-        "comment_author_id": "3333",
-        "content": "Good luck! Can't wait to see it!"
-      },
-      {
-        "comment_id": "cc",
-        "comment_author_id": "4444",
-        "content": "Exciting! Keep us posted."
-      }
-    ]
-  },
-  {
-    "post_id": 3,
-    "author": {
-      "author_id": "3333",
-      "first_name": "Emily",
-      "last_name": "Stone",
-      "photo": "https://randomuser.me/api/portraits/women/45.jpg"
-    },
-    "image": "https://picsum.photos/600/900?random=3",
-    "content": "Enjoying a sunny day at the beach! ☀️🌊",
-    "comments": [
-      {
-        "comment_id": "dd",
-        "comment_author_id": "5555",
-        "content": "Looks amazing! Wish I was there!"
-      },
-      {
-        "comment_id": "ee",
-        "comment_author_id": "6666",
-        "content": "Hope you're having a great time!"
+        "content": "yeah.. 2",
+        "replies": [
+          {
+            "reply_id": "r3",
+            "reply_author_id": "9999",
+            "content": "Interesting perspective. "
+          },
+          {
+            "reply_id": "r4",
+            "reply_author_id": "0000",
+            "content": "What do you think about this topic?"
+          }
+        ]
       }
     ]
   }

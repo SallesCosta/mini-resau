@@ -1,7 +1,7 @@
 import { HeaderElement } from "./components/Header"
-import { FeedPage } from "./pages/FeedPage"
-import { FriendsPage } from "./pages/FriendsPage"
-import { ChatPage } from "./pages/ChatPage"
+import { FeedPage } from "./pages/FeedPage/FeedPage"
+import { FriendsPage } from "./pages/FriendsPage/FriendsPage"
+import { ChatPage } from "./pages/ChatPage/ChatPage"
 
 const contentContainer = document.createElement("div")
 contentContainer.setAttribute("data-js", "contentContainer")

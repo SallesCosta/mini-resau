@@ -1,14 +1,22 @@
 import "./FeedPage.style.scss"
-import "../components/Modal-style.scss"
-import { dc } from "../helpers/helpers"
-import postList from "../helpers/posts.json"
-import { openModal, Modal } from "../components/Modal"
-import { LikeButton } from "../components/LikeButton"
+import "../../components/Modal-style.scss"
+import { dc } from "../../helpers/helpers"
+import postList from "../../helpers/posts.json"
+import { openModal, Modal } from "../../components/Modal"
+import { LikeButton } from "../../components/LikeButton"
+import { Comment } from "./components/Comment"
 
-interface CommentProps {
+export interface Reply {
+  reply_id: string
+  reply_author_id: string
+  content: string
+}
+
+export interface CommentProps {
   comment_id: string
   comment_author_id: string
   content: string
+  replies: Reply[] // Array de objetos Reply
 }
 
 interface AuthorProps {
@@ -31,10 +39,7 @@ const createCard = (post: PostProps) => {
   CommentsWrapper.classList.add("feed-page__comments-wrapper")
 
   post.comments.map((commentData) => {
-    const Comment = dc("span")
-    Comment.textContent = commentData.content
-    Comment.classList.add("feed-page__comment")
-    CommentsWrapper.appendChild(Comment)
+    CommentsWrapper.appendChild(Comment(commentData))
   })
 
   // ------------------- Author Info (name & photo) --------------
