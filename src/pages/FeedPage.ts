@@ -81,7 +81,9 @@ const createCard = (post: PostProps) => {
   AnchorToScroll.setAttribute("data-js", `postImage-${post.post_id}`)
 
   Card.appendChild(AuthorInfo)
-  Card.appendChild(PostImg)
+  if (post.image !== "") {
+    Card.appendChild(PostImg)
+  }
   Card.appendChild(PostContent)
   Card.appendChild(ReactionsWrapper)
   Card.appendChild(CommentsWrapper)
