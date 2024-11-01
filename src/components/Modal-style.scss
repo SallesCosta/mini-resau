@@ -1,4 +1,4 @@
-@import "../_global.scss";
+@use "../styles/_variables";
 
 .app-dark {
   background: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9));
@@ -6,15 +6,44 @@
 
 .modal {
   text-align: center;
-  background-color: #fff;
+  background-color: variables.$background-white;
   border: 2px solid black;
-  width: 400px;
+  border-radius: variables.$br-md;
+  width: 90%;
+  max-width: 600px;
   padding: 2rem 0rem;
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+
+  &__close-button {
+    align-items: center;
+    background-color: variables.$gray;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    height: 25px;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 25px;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    margin: 1rem auto;
+    display: block;
+  }
 }
 
 .display-none {

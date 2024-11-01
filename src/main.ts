@@ -1,5 +1,3 @@
-import "./main-style.scss"
-
 import { HeaderElement } from "./components/Header"
 import { FeedPage } from "./pages/FeedPage"
 import { FriendsPage } from "./pages/FriendsPage"

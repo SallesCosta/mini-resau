@@ -1,12 +1,13 @@
 [
   {
+    "post_id": 1,
     "author": {
       "author_id": "1111",
       "first_name": "Loren",
       "last_name": "Ipsum",
       "photo": "https://randomuser.me/api/portraits/women/18.jpg"
     },
-    "image": "https://picsum.photos/200/300?random=1",
+    "image": "https://picsum.photos/600/900?random=1",
     "content": "lorem ipsum",
     "comments": [
       {
@@ -22,13 +23,14 @@
     ]
   },
   {
+    "post_id": 2,
     "author": {
       "author_id": "2222",
       "first_name": "John",
       "last_name": "Doe",
       "photo": "https://randomuser.me/api/portraits/men/32.jpg"
     },
-    "image": "https://picsum.photos/200/300?random=2",
+    "image": "https://picsum.photos/600/900?random=2",
     "content": "Starting the day with a new project! 🚀",
     "comments": [
       {
@@ -44,13 +46,14 @@
     ]
   },
   {
+    "post_id": 3,
     "author": {
       "author_id": "3333",
       "first_name": "Emily",
       "last_name": "Stone",
       "photo": "https://randomuser.me/api/portraits/women/45.jpg"
     },
-    "image": "https://picsum.photos/200/300?random=3",
+    "image": "https://picsum.photos/600/900?random=3",
     "content": "Enjoying a sunny day at the beach! ☀️🌊",
     "comments": [
       {

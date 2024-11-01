@@ -2,10 +2,8 @@ import "./FeedPage.style.scss"
 import "../components/Modal-style.scss"
 import { dc } from "../helpers/helpers"
 import postList from "../helpers/posts.json"
-import { HeartIcon } from "../components/HeartIcon"
-import { ThumbUm } from "../components/thumbUp"
-import { ThumbDown } from "../components/thumbDown"
 import { openModal, Modal } from "../components/Modal"
+import { LikeButton } from "../components/LikeButton"
 
 interface CommentProps {
   comment_id: string
@@ -21,6 +19,7 @@ interface AuthorProps {
 }
 
 interface PostProps {
+  post_id: number
   author: AuthorProps
   image: string
   content: string
@@ -28,7 +27,7 @@ interface PostProps {
 }
 
 const createCard = (post: PostProps) => {
-  const CommentsWrapper = dc("div")
+  const CommentsWrapper = dc("section")
   CommentsWrapper.classList.add("feed-page__comments-wrapper")
 
   post.comments.map((commentData) => {
@@ -53,42 +52,40 @@ const createCard = (post: PostProps) => {
   AuthorInfo.appendChild(AuthorFirsName)
 
   // ------------------ Post Content  --------------------------
-
   const PostContent = dc("p")
   PostContent.textContent = post.content
 
   const PostImg = dc("img") as HTMLImageElement
-  PostImg.setAttribute("data-js", "postImage")
   PostImg.classList.add("feed-page__post-image")
   PostImg.src = post.image
   PostImg.addEventListener("click", () => {
-    openModal(post.image)
+    openModal(post.image, post.post_id)
   })
 
-  // ------------------ Reactions -----------------------------
-  const UnLikeButton = dc("button")
-  UnLikeButton.classList.add("feed-page__like-button")
-  UnLikeButton.innerHTML = ThumbDown()
-
-  const LoveButton = dc("button")
-  LoveButton.classList.add("feed-page__like-button")
-  LoveButton.innerHTML = HeartIcon()
-
-  const LikeButton = dc("button")
-  LikeButton.classList.add("feed-page__like-button")
-  LikeButton.innerHTML = ThumbUm()
-
-  // ------------------ Definição do Card --------------------
   const Card = dc("section")
   Card.setAttribute("data-js", "feed-card")
   Card.setAttribute("data-author", post.author.author_id)
   Card.classList.add("feed-page__card")
 
+  const ReactionsWrapper = dc("div")
+  ReactionsWrapper.setAttribute(
+    "data-js",
+    `feed-card__reation-wrapper__${post.post_id}`,
+  )
+  ReactionsWrapper.classList.add("feed-page__reactions-wrapper")
+  ReactionsWrapper.appendChild(LikeButton("like", post.post_id))
+  ReactionsWrapper.appendChild(LikeButton("dislike", post.post_id))
+  ReactionsWrapper.appendChild(LikeButton("heart", post.post_id))
+
+  const AnchorToScroll = dc("div")
+  AnchorToScroll.setAttribute("data-js", `postImage-${post.post_id}`)
+
   Card.appendChild(AuthorInfo)
   Card.appendChild(PostImg)
   Card.appendChild(PostContent)
-  Card.appendChild(LikeButton)
+  Card.appendChild(ReactionsWrapper)
   Card.appendChild(CommentsWrapper)
+  Card.appendChild(AnchorToScroll)
 
   return Card
 }
