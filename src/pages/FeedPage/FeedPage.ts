@@ -3,7 +3,7 @@ import "../../components/Modal-style.scss"
 import { dc } from "../../helpers/helpers"
 import postList from "../../helpers/posts.json"
 import { openModal, Modal } from "../../components/Modal"
-import { LikeButton } from "../../components/LikeButton"
+import { LikeButton, PlusIcon } from "../../components/LikeButton"
 import { Comment } from "./components/Comment"
 
 export interface Reply {
@@ -16,7 +16,7 @@ export interface CommentProps {
   comment_id: string
   comment_author_id: string
   content: string
-  replies: Reply[] // Array de objetos Reply
+  replies: Reply[]
 }
 
 interface AuthorProps {
@@ -72,15 +72,28 @@ const createCard = (post: PostProps) => {
   Card.setAttribute("data-author", post.author.author_id)
   Card.classList.add("feed-page__card")
 
+
+  const AddCommentButton = (postId: number) => {
+  const addCommentButton = dc('button')
+  addCommentButton.classList.add('comment-button')
+  addCommentButton.appendChild(PlusIcon())
+  addCommentButton.addEventListener("click", () => {
+    // localizar o post pelo id e inserir nele um outro input
+  } )
+
+  return addCommentButton
+  }
+
   const ReactionsWrapper = dc("div")
   ReactionsWrapper.setAttribute(
     "data-js",
-    `feed-card__reation-wrapper__${post.post_id}`,
+    `feed-card__reaction-wrapper__${post.post_id}`,
   )
   ReactionsWrapper.classList.add("feed-page__reactions-wrapper")
   ReactionsWrapper.appendChild(LikeButton("like", post.post_id))
   ReactionsWrapper.appendChild(LikeButton("dislike", post.post_id))
   ReactionsWrapper.appendChild(LikeButton("heart", post.post_id))
+  ReactionsWrapper.appendChild(AddCommentButton(post.post_id))
 
   const AnchorToScroll = dc("div")
   AnchorToScroll.setAttribute("data-js", `postImage-${post.post_id}`)

@@ -1,5 +1,28 @@
 @use "../styles/_variables";
 
+.comment-button {
+  align-items: center;
+  appearance: none;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0.3em 0.6em rgba(black, 0.3);
+  cursor: pointer;
+  color: variables.$blue;
+  display: flex;
+  font-size: 3rem;
+  height: 4rem;
+  justify-content: center;
+  outline: none;
+  transition: transform variables.$duration variables.$easing;
+  width: 4rem;
+  z-index: 2;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 .like-button {
   font-size: 4rem;
   appearance: none;
@@ -85,12 +108,19 @@
   grid-area: 1 / 1;
 }
 
+.plus path {
+  stroke: variables.$blue;
+  stroke-width: 3;
+  fill: transparent;
+  transition: fill variables.$duration variables.$easing;
+}
 .heart {
   width: 0.5em;
   height: 0.5em;
   display: block;
   transition: fill variables.$duration variables.$easing;
 }
+
 
 .heart path {
   stroke: variables.$red;

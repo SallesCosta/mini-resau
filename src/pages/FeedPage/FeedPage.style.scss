@@ -51,13 +51,13 @@
 
   // ------------------- Post Content --------------
   &__post-image {
-    border-radius: 12px;
+    border-radius: 1.2rem;
     cursor: pointer;
     display: block;
-    height: 70px;
+    height: 7rem;
     margin: 0 auto;
     object-fit: cover;
-    width: 70px;
+    width: 7rem;
 
     @media (min-width: variables.$breakpoint-mobile) {
       width: 150px;
@@ -77,36 +77,16 @@
     justify-content: center;
   }
 
-  &__base-button {
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-  &__like-button {
-    color: variables.$blue;
-  }
-
-  &__unlike-button {
-    color: variables.$blue;
-  }
-
-  &__love-button {
-    color: variables.$red;
-  }
 
   &__comments-wrapper {
     background: transparent;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1.2rem;
   }
 
   &__comment {
     background: variables.$background-white;
-    padding: 2px 4px;
+    padding: 0.2rem 0.4rem;
   }
 }

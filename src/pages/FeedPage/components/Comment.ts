@@ -37,6 +37,7 @@ export const Comment = (data: CommentProps) => {
         reply_author_id: userData.userId,
         content: ReplyInput.value,
       }
+
       data.replies.push(sender)
       ReplyInput.value = ""
       renderReplies()
@@ -85,9 +86,7 @@ export const Comment = (data: CommentProps) => {
   FirstCommentWrapper.appendChild(ReplyButton)
 
   CommentWrapper.appendChild(FirstCommentWrapper)
-  if (data.replies.length !== 0) {
-    CommentWrapper.appendChild(ReplyList)
-  }
+  CommentWrapper.appendChild(ReplyList)
   CommentWrapper.appendChild(InputWrapper)
 
   return CommentWrapper
