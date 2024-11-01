@@ -1,62 +1,94 @@
-import { dc } from "../../../helpers/helpers"
+import "./Comment.style.scss"
+import { commentUserName, dc, userData, uuid } from "../../../helpers/helpers"
 import { CommentProps, Reply } from "../FeedPage"
 
 export const Comment = (data: CommentProps) => {
-  const comment = dc("div")
+  const CommentWrapper = dc("div")
+  CommentWrapper.classList.add("comment")
 
-  const commentText = dc("p")
-  commentText.textContent = data.content
+  const FirstCommentWrapper = dc("div")
+  FirstCommentWrapper.classList.add("comment__first-comment-wrapper")
 
-  const replyButton = dc("button")
-  replyButton.textContent = "Comentar"
+  const CommentText = dc("p")
+  CommentText.textContent = data.content
 
-  const replyInput = document.createElement("input")
-  replyInput.type = "text"
-  replyInput.style.display = "none"
+  const ReplyButton = dc("button")
+  ReplyButton.textContent = "+"
+  ReplyButton.classList.add("comment__first-comment-button")
 
-  const replyList = dc("ul")
+  const ReplyInput = document.createElement("input")
+  ReplyInput.type = "text"
+  ReplyInput.style.display = "none"
+  ReplyInput.classList.add("comment__input")
+
+  const InputWrapper = dc("div")
+  InputWrapper.appendChild(ReplyInput)
+  InputWrapper.classList.add("comment__input-wrapper")
+
+  const ReplyList = dc("ul")
+  ReplyList.classList.add("comment__reply-list")
 
   let isReplying = false
 
   const addReply = () => {
-    if (replyInput.value) {
+    if (ReplyInput.value) {
       const sender: Reply = {
-        reply_id: "ufidos",
-        reply_author_id: "383838",
-        content: replyInput.value,
+        reply_id: uuid(),
+        reply_author_id: userData.userId,
+        content: ReplyInput.value,
       }
       data.replies.push(sender)
-      replyInput.value = ""
+      ReplyInput.value = ""
       renderReplies()
+
+      //hide input-wrapper after send data
+      InputWrapper.style.display = "none"
     }
   }
 
+  const ListItem = (content: string, userName: string, userImg: string) => {
+    const listItem = dc("li")
+    listItem.classList.add("comment__reply-item")
+
+    listItem.innerHTML = `
+    <span>${content}</span>
+    <div class='comment__user-info''>
+      <span>${userName}</span>
+      <img src=${userImg} alt='user image' class='comment__user-photo'/>
+    </div>
+`
+    return listItem
+  }
   const renderReplies = () => {
-    replyList.innerHTML = ""
+    ReplyList.innerHTML = ""
     data.replies.forEach((replyText) => {
-      const replyItem = dc("li")
-      replyItem.textContent = replyText.content
-      replyList.appendChild(replyItem)
+      ReplyList.appendChild(
+        ListItem(replyText.content, commentUserName, userData.mePhoto),
+      )
     })
   }
 
-  replyButton.addEventListener("click", () => {
+  ReplyButton.addEventListener("click", () => {
     isReplying = !isReplying
-    replyInput.style.display = isReplying ? "block" : "none"
+    InputWrapper.style.display = isReplying ? "block" : "none"
+    ReplyInput.style.display = isReplying ? "block" : "none"
   })
 
-  replyInput.addEventListener("keyup", (event) => {
+  ReplyInput.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
       addReply()
     }
   })
 
   renderReplies()
+  FirstCommentWrapper.appendChild(CommentText)
+  FirstCommentWrapper.appendChild(ReplyButton)
 
-  comment.appendChild(commentText)
-  comment.appendChild(replyButton)
-  comment.appendChild(replyInput)
-  comment.appendChild(replyList)
+  CommentWrapper.appendChild(FirstCommentWrapper)
+  if (data.replies.length !== 0) {
+    CommentWrapper.appendChild(ReplyList)
+  }
+  CommentWrapper.appendChild(InputWrapper)
 
-  return comment
+  return CommentWrapper
 }
