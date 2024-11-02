@@ -1,0 +1,42 @@
+@use "../../../styles/_variables";
+
+.reactions-wrapper {
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.reactions {
+  align-items: center;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+}
+
+.comment-button {
+  appearance: none;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  color: variables.$blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  transition: transform variables.$duration variables.$easing;
+  height: 3rem;
+  width: 3rem;
+  z-index: 2;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+  @media (min-width: variables.$breakpoint-mobile) {
+    height: 4rem;
+    width: 4rem;
+  }
+}

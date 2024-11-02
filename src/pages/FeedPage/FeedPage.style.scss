@@ -84,20 +84,6 @@ span {
     }
   }
 
-  &__reactions-wrapper {
-    position: relative;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-  }
-
-  &__reactions {
-    align-items: center;
-    display: flex;
-    gap: 1.2rem;
-    justify-content: center;
-  }
-
   &__comments-wrapper {
     background: transparent;
     display: flex;

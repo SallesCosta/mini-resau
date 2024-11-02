@@ -5,9 +5,8 @@ import "../../components/Modal-style.scss"
 import { dc, sanitizeInput, userData, uuid } from "../../helpers/helpers"
 import postList from "../../helpers/posts.json"
 import { openModal, Modal } from "../../components/Modal"
-import { LikeButton } from "../../components/LikeButton"
 import { Comment } from "./components/Comment"
-import { PlusIcon } from "../../components/SvgIcons"
+import { ReactionsWrapper } from "./components/Reactions"
 
 export interface Reply {
   reply_id: string
@@ -41,7 +40,7 @@ interface PostProps {
 }
 
 const createCard = (post: PostProps) => {
-  const CommentInput = document.createElement("input")
+  const CommentInput = dc("input") as HTMLInputElement
   CommentInput.type = "text"
   CommentInput.style.display = "none"
   CommentInput.classList.add("comment__input")
@@ -55,17 +54,6 @@ const createCard = (post: PostProps) => {
   const InputWrapper = dc("div")
   InputWrapper.appendChild(CommentInput)
   InputWrapper.classList.add("comment__input-wrapper")
-
-  const addCommentButton = () => {
-    const button = dc("button")
-    button.classList.add("comment-button")
-    button.innerHTML = `
-    ${PlusIcon()}
-  `
-    return button
-  }
-
-  let isCommenting = false
 
   const addComment = () => {
     if (CommentInput.value) {
@@ -129,34 +117,12 @@ const createCard = (post: PostProps) => {
     })
   }
 
-  const AddCommentButton = addCommentButton()
-  AddCommentButton.setAttribute("data-js", "feed-card")
-  AddCommentButton.addEventListener("click", () => {
-    isCommenting = !isCommenting
-
-    InputWrapper.style.display = isCommenting ? "block" : "none"
-    CommentInput.style.display = isCommenting ? "block" : "none"
-    CommentInput.focus()
-  })
-
-  renderComments()
-
-  const ReactionsWrapper = dc("div")
-  ReactionsWrapper.setAttribute(
-    "data-js",
-    `feed-card__reaction-wrapper__${post.post_id}`,
+  const reactionsWrapper = ReactionsWrapper(
+    post.post_id,
+    renderComments,
+    InputWrapper,
+    CommentInput,
   )
-
-  ReactionsWrapper.classList.add("feed-page__reactions-wrapper")
-  const ReactionsWrapperInternal = dc("div")
-  ReactionsWrapperInternal.classList.add("feed-page__reactions")
-  ReactionsWrapperInternal.appendChild(LikeButton("like", post.post_id))
-  ReactionsWrapperInternal.appendChild(LikeButton("dislike", post.post_id))
-  ReactionsWrapperInternal.appendChild(LikeButton("heart", post.post_id))
-
-  ReactionsWrapper.appendChild(ReactionsWrapperInternal)
-  ReactionsWrapper.appendChild(AddCommentButton)
-
   const AnchorToScroll = dc("div")
   AnchorToScroll.setAttribute("data-js", `postImage-${post.post_id}`)
 
@@ -165,7 +131,7 @@ const createCard = (post: PostProps) => {
     Card.appendChild(PostImg)
   }
   Card.appendChild(PostContent)
-  Card.appendChild(ReactionsWrapper)
+  Card.appendChild(reactionsWrapper)
   Card.appendChild(InputWrapper)
   Card.appendChild(CommentsList)
   Card.appendChild(AnchorToScroll)
