@@ -20,6 +20,11 @@ export const Comment = (data: CommentProps) => {
   ReplyInput.type = "text"
   ReplyInput.style.display = "none"
   ReplyInput.classList.add("comment__input")
+  ReplyInput.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      addReply()
+    }
+  })
 
   const InputWrapper = dc("div")
   InputWrapper.appendChild(ReplyInput)
@@ -52,11 +57,11 @@ export const Comment = (data: CommentProps) => {
     listItem.classList.add("comment__reply-item")
 
     listItem.innerHTML = `
-    <span>${content}</span>
     <div class='comment__user-info''>
-      <span>${userName}</span>
       <img src=${userImg} alt='user image' class='comment__user-photo'/>
+      <span>${userName}</span>
     </div>
+    <span>${content}</span>
 `
     return listItem
   }
@@ -73,12 +78,7 @@ export const Comment = (data: CommentProps) => {
     isReplying = !isReplying
     InputWrapper.style.display = isReplying ? "block" : "none"
     ReplyInput.style.display = isReplying ? "block" : "none"
-  })
-
-  ReplyInput.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-      addReply()
-    }
+    ReplyInput.focus()
   })
 
   renderReplies()

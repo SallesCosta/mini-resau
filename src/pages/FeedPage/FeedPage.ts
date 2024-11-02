@@ -1,6 +1,8 @@
 import "./FeedPage.style.scss"
+import "./components/Comment.style.scss"
+
 import "../../components/Modal-style.scss"
-import { dc } from "../../helpers/helpers"
+import { dc, userData, uuid } from "../../helpers/helpers"
 import postList from "../../helpers/posts.json"
 import { openModal, Modal } from "../../components/Modal"
 import { LikeButton, PlusIcon } from "../../components/LikeButton"
@@ -35,12 +37,47 @@ interface PostProps {
 }
 
 const createCard = (post: PostProps) => {
-  const CommentsWrapper = dc("section")
-  CommentsWrapper.classList.add("feed-page__comments-wrapper")
-
-  post.comments.map((commentData) => {
-    CommentsWrapper.appendChild(Comment(commentData))
+  const CommentInput = document.createElement("input")
+  CommentInput.type = "text"
+  CommentInput.style.display = "none"
+  CommentInput.classList.add("comment__input")
+  CommentInput.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      addComment()
+    }
   })
+
+  const InputWrapper = dc("div")
+  InputWrapper.appendChild(CommentInput)
+  InputWrapper.classList.add("comment__input-wrapper")
+
+  const AddCommentButton = dc("button")
+  AddCommentButton.classList.add("comment-button")
+  AddCommentButton.appendChild(PlusIcon())
+
+  let isCommenting = false
+
+  const addComment = () => {
+    console.log("addComment..")
+    if (CommentInput.value) {
+      const sender: CommentProps = {
+        comment_id: uuid(),
+        comment_author_id: userData.userId,
+        content: CommentInput.value,
+        replies: [],
+      }
+
+      post.comments.unshift(sender)
+      CommentInput.value = ""
+      renderComments()
+
+      //hide input-wrapper after send data
+      InputWrapper.style.display = "none"
+    }
+  }
+
+  const CommentsList = dc("section")
+  CommentsList.classList.add("feed-page__comments-wrapper")
 
   // ------------------- Author Info (name & photo) --------------
   const AuthorFirsName = dc("span")
@@ -72,39 +109,46 @@ const createCard = (post: PostProps) => {
   Card.setAttribute("data-author", post.author.author_id)
   Card.classList.add("feed-page__card")
 
-
-  const AddCommentButton = (postId: number) => {
-  const addCommentButton = dc('button')
-  addCommentButton.classList.add('comment-button')
-  addCommentButton.appendChild(PlusIcon())
-  addCommentButton.addEventListener("click", () => {
-    // localizar o post pelo id e inserir nele um outro input
-  } )
-
-  return addCommentButton
+  const renderComments = () => {
+    CommentsList.innerHTML = ""
+    post.comments.map((commentData) => {
+      CommentsList.appendChild(Comment(commentData))
+    })
   }
+
+  AddCommentButton.addEventListener("click", () => {
+    isCommenting = !isCommenting
+
+    InputWrapper.style.display = isCommenting ? "block" : "none"
+    CommentInput.style.display = isCommenting ? "block" : "none"
+    CommentInput.focus()
+  })
+
+  renderComments()
 
   const ReactionsWrapper = dc("div")
   ReactionsWrapper.setAttribute(
     "data-js",
     `feed-card__reaction-wrapper__${post.post_id}`,
   )
+
   ReactionsWrapper.classList.add("feed-page__reactions-wrapper")
   ReactionsWrapper.appendChild(LikeButton("like", post.post_id))
   ReactionsWrapper.appendChild(LikeButton("dislike", post.post_id))
   ReactionsWrapper.appendChild(LikeButton("heart", post.post_id))
-  ReactionsWrapper.appendChild(AddCommentButton(post.post_id))
+  ReactionsWrapper.appendChild(AddCommentButton)
 
   const AnchorToScroll = dc("div")
   AnchorToScroll.setAttribute("data-js", `postImage-${post.post_id}`)
 
   Card.appendChild(AuthorInfo)
-  // if (post.image !== "") {
-  //   Card.appendChild(PostImg)
-  // }
+  if (post.image !== "") {
+    Card.appendChild(PostImg)
+  }
   Card.appendChild(PostContent)
   Card.appendChild(ReactionsWrapper)
-  Card.appendChild(CommentsWrapper)
+  Card.appendChild(InputWrapper)
+  Card.appendChild(CommentsList)
   Card.appendChild(AnchorToScroll)
 
   return Card
