@@ -17,6 +17,9 @@ export interface Reply {
 export interface CommentProps {
   comment_id: string
   comment_author_id: string
+  comment_author_photo: string
+  comment_author_firstname: string
+  comment_author_lastname: string
   content: string
   replies: Reply[]
 }
@@ -63,6 +66,9 @@ const createCard = (post: PostProps) => {
       const sender: CommentProps = {
         comment_id: uuid(),
         comment_author_id: userData.userId,
+        comment_author_photo: userData.mePhoto,
+        comment_author_firstname: userData.firstName,
+        comment_author_lastname: userData.lastName,
         content: CommentInput.value,
         replies: [],
       }

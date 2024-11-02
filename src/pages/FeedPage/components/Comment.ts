@@ -16,7 +16,7 @@ export const Comment = (data: CommentProps) => {
   ReplyButton.textContent = "+"
   ReplyButton.classList.add("comment__first-comment-button")
 
-  const ReplyInput = document.createElement("input")
+  const ReplyInput = dc("input") as HTMLInputElement
   ReplyInput.type = "text"
   ReplyInput.style.display = "none"
   ReplyInput.classList.add("comment__input")
@@ -52,19 +52,37 @@ export const Comment = (data: CommentProps) => {
     }
   }
 
+  const UserInfo = (userImg: string, userName: string) => {
+    const userInfo = dc("div")
+    userInfo.classList.add("comment__user-info")
+
+    const Image = dc("img") as HTMLImageElement
+    Image.src = userImg
+    Image.classList.add("comment__user-photo")
+    Image.alt = "user image"
+
+    const UserName = dc("span")
+    UserName.textContent = userName
+
+    userInfo.appendChild(Image)
+    userInfo.appendChild(UserName)
+
+    return userInfo
+  }
+
   const ListItem = (content: string, userName: string, userImg: string) => {
     const listItem = dc("li")
     listItem.classList.add("comment__reply-item")
+    listItem.appendChild(UserInfo(userImg, userName))
 
-    listItem.innerHTML = `
-    <div class='comment__user-info''>
-      <img src=${userImg} alt='user image' class='comment__user-photo'/>
-      <span>${userName}</span>
-    </div>
-    <span>${content}</span>
-`
+    const contentElement = dc("span")
+    contentElement.textContent = content
+
+    listItem.appendChild(contentElement)
+
     return listItem
   }
+
   const renderReplies = () => {
     ReplyList.innerHTML = ""
     data.replies.forEach((replyText) => {
@@ -82,6 +100,11 @@ export const Comment = (data: CommentProps) => {
   })
 
   renderReplies()
+
+  const commentAuthorName = `${data.comment_author_firstname} ${data.comment_author_lastname}`
+  FirstCommentWrapper.appendChild(
+    UserInfo(data.comment_author_photo, commentAuthorName),
+  )
   FirstCommentWrapper.appendChild(CommentText)
   FirstCommentWrapper.appendChild(ReplyButton)
 
