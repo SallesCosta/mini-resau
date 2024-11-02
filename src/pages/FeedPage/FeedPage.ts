@@ -2,7 +2,7 @@ import "./FeedPage.style.scss"
 import "./components/Comment.style.scss"
 
 import "../../components/Modal-style.scss"
-import { dc, userData, uuid } from "../../helpers/helpers"
+import { dc, sanitizeInput, userData, uuid } from "../../helpers/helpers"
 import postList from "../../helpers/posts.json"
 import { openModal, Modal } from "../../components/Modal"
 import { LikeButton } from "../../components/LikeButton"
@@ -46,6 +46,7 @@ const createCard = (post: PostProps) => {
   CommentInput.style.display = "none"
   CommentInput.classList.add("comment__input")
   CommentInput.addEventListener("keyup", (event) => {
+    sanitizeInput(CommentInput)
     if (event.key === "Enter") {
       addComment()
     }

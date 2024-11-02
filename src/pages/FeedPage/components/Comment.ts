@@ -1,5 +1,11 @@
 import "./Comment.style.scss"
-import { commentUserName, dc, userData, uuid } from "../../../helpers/helpers"
+import {
+  commentUserName,
+  dc,
+  sanitizeInput,
+  userData,
+  uuid,
+} from "../../../helpers/helpers"
 import { CommentProps, Reply } from "../FeedPage"
 
 export const Comment = (data: CommentProps) => {
@@ -21,6 +27,7 @@ export const Comment = (data: CommentProps) => {
   ReplyInput.style.display = "none"
   ReplyInput.classList.add("comment__input")
   ReplyInput.addEventListener("keyup", (event) => {
+    sanitizeInput(ReplyInput)
     if (event.key === "Enter") {
       addReply()
     }

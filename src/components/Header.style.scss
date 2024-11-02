@@ -1,9 +1,16 @@
+@use "../styles/_variables";
+
 .header-content {
   width: 100%;
-  background: lime;
+  background: variables.$white;
 
   &__link-page {
     cursor: pointer;
+    color: variables.$gray;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &__title {
