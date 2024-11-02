@@ -61,7 +61,7 @@ export const Comment = (data: CommentProps) => {
     Image.classList.add("comment__user-photo")
     Image.alt = "user image"
 
-    const UserName = dc("span")
+    const UserName = dc("b")
     UserName.textContent = userName
 
     userInfo.appendChild(Image)
@@ -73,7 +73,9 @@ export const Comment = (data: CommentProps) => {
   const ListItem = (content: string, userName: string, userImg: string) => {
     const listItem = dc("li")
     listItem.classList.add("comment__reply-item")
-    listItem.appendChild(UserInfo(userImg, userName))
+
+    const formatedUserName = `${userName}:`
+    listItem.appendChild(UserInfo(userImg, formatedUserName))
 
     const contentElement = dc("span")
     contentElement.textContent = content
@@ -101,11 +103,17 @@ export const Comment = (data: CommentProps) => {
 
   renderReplies()
 
-  const commentAuthorName = `${data.comment_author_firstname} ${data.comment_author_lastname}`
-  FirstCommentWrapper.appendChild(
+  const infoWrapper = dc("div")
+  infoWrapper.classList.add("comment__user-info")
+  const commentAuthorName = `${data.comment_author_firstname} ${data.comment_author_lastname}: `
+
+  infoWrapper.appendChild(
     UserInfo(data.comment_author_photo, commentAuthorName),
   )
-  FirstCommentWrapper.appendChild(CommentText)
+
+  infoWrapper.appendChild(CommentText)
+
+  FirstCommentWrapper.appendChild(infoWrapper)
   FirstCommentWrapper.appendChild(ReplyButton)
 
   CommentWrapper.appendChild(FirstCommentWrapper)

@@ -1,5 +1,16 @@
 @use "../../styles/_variables";
 
+// mobile first
+p,
+b,
+a,
+span {
+  font-size: 1.2rem;
+  @media (min-width: variables.$breakpoint-mobile) {
+    font-size: 1.4rem;
+  }
+}
+
 .feed-page {
   height: 100dvh;
   padding: 14px 0;
@@ -85,7 +96,7 @@
   }
 
   &__comment {
-    background: variables.$background-white;
+    background: variables.$background;
     padding: 0.2rem 0.4rem;
   }
 }
