@@ -5,8 +5,9 @@ import "../../components/Modal-style.scss"
 import { dc, userData, uuid } from "../../helpers/helpers"
 import postList from "../../helpers/posts.json"
 import { openModal, Modal } from "../../components/Modal"
-import { LikeButton, PlusIcon } from "../../components/LikeButton"
+import { LikeButton } from "../../components/LikeButton"
 import { Comment } from "./components/Comment"
+import { PlusIcon } from "../../components/SvgIcons"
 
 export interface Reply {
   reply_id: string
@@ -33,9 +34,9 @@ interface AuthorProps {
 
 interface PostProps {
   post_id: number
-  author: AuthorProps
   image: string
   content: string
+  author: AuthorProps
   comments: CommentProps[]
 }
 
