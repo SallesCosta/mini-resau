@@ -56,14 +56,18 @@ const createCard = (post: PostProps) => {
   InputWrapper.appendChild(CommentInput)
   InputWrapper.classList.add("comment__input-wrapper")
 
-  const AddCommentButton = dc("button")
-  AddCommentButton.classList.add("comment-button")
-  AddCommentButton.appendChild(PlusIcon())
+  const addCommentButton = () => {
+    const button = dc("button")
+    button.classList.add("comment-button")
+    button.innerHTML = `
+    ${PlusIcon()}
+  `
+    return button
+  }
 
   let isCommenting = false
 
   const addComment = () => {
-    console.log("addComment..")
     if (CommentInput.value) {
       const sender: CommentProps = {
         comment_id: uuid(),
@@ -103,6 +107,7 @@ const createCard = (post: PostProps) => {
 
   // ------------------ Post Content  --------------------------
   const PostContent = dc("p")
+  PostContent.classList.add("feed-page__post-content")
   PostContent.textContent = post.content
 
   const PostImg = dc("img") as HTMLImageElement
@@ -124,6 +129,8 @@ const createCard = (post: PostProps) => {
     })
   }
 
+  const AddCommentButton = addCommentButton()
+  AddCommentButton.setAttribute("data-js", "feed-card")
   AddCommentButton.addEventListener("click", () => {
     isCommenting = !isCommenting
 
@@ -141,9 +148,13 @@ const createCard = (post: PostProps) => {
   )
 
   ReactionsWrapper.classList.add("feed-page__reactions-wrapper")
-  ReactionsWrapper.appendChild(LikeButton("like", post.post_id))
-  ReactionsWrapper.appendChild(LikeButton("dislike", post.post_id))
-  ReactionsWrapper.appendChild(LikeButton("heart", post.post_id))
+  const ReactionsWrapperInternal = dc("div")
+  ReactionsWrapperInternal.classList.add("feed-page__reactions")
+  ReactionsWrapperInternal.appendChild(LikeButton("like", post.post_id))
+  ReactionsWrapperInternal.appendChild(LikeButton("dislike", post.post_id))
+  ReactionsWrapperInternal.appendChild(LikeButton("heart", post.post_id))
+
+  ReactionsWrapper.appendChild(ReactionsWrapperInternal)
   ReactionsWrapper.appendChild(AddCommentButton)
 
   const AnchorToScroll = dc("div")

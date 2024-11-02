@@ -9,22 +9,18 @@ ${ChatIcon()}
 linkToChatPage.setAttribute("data-js", "nav-btn")
 linkToChatPage.setAttribute("data-page", "chat")
 linkToChatPage.classList.add("header-content__link-page")
-console.log("linkToChatPage :", linkToChatPage)
 
 const linkToFriendsPage = dc("a")
 linkToFriendsPage.innerHTML = `${FriendsIcon()}`
 linkToFriendsPage.setAttribute("data-js", "nav-btn")
 linkToFriendsPage.setAttribute("data-page", "friends")
 linkToFriendsPage.classList.add("header-content__link-page")
-console.log("linkToFriendsPage :", linkToFriendsPage)
 
 const linkToFeedPage = dc("a")
 linkToFeedPage.innerHTML = `${HomeIcon()}`
 linkToFeedPage.setAttribute("data-js", "nav-btn")
 linkToFeedPage.setAttribute("data-page", "feed")
 linkToFeedPage.classList.add("header-content__link-page")
-
-console.log("linkToFeedPage :", linkToFeedPage)
 
 const navigation = dc("div")
 navigation?.classList.add("header-content__nav-wrapper")
