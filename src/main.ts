@@ -7,7 +7,7 @@ import { ChatPage } from "./pages/ChatPage/ChatPage"
 const contentContainer = document.createElement("div")
 contentContainer.setAttribute("data-js", "contentContainer")
 
-const renderPage = (page: "feed" | "chat" | "friends") => {
+export const renderPage = (page: "feed" | "chat" | "friends") => {
   contentContainer.innerHTML = ""
 
   const component =
