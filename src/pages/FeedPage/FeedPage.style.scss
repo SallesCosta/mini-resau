@@ -40,50 +40,6 @@ span {
     }
   }
 
-  // ------------------- Author Info (name & photo) --------------
-  &__author-info {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    gap: 0.6rem;
-    justify-content: flex-start;
-    max-width: 50%;
-  }
-
-  &__author-photo {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0;
-  }
-
-  // ------------------- Post Content --------------
-  &__post-content {
-    text-align: center;
-  }
-
-  &__post-image {
-    border-radius: 1.2rem;
-    cursor: pointer;
-    display: block;
-    height: 15rem;
-    margin: 0 auto;
-    object-fit: cover;
-    width: 15rem;
-
-    @media (min-width: variables.$breakpoint-mobile) {
-      width: 20rem;
-      height: 20rem;
-    }
-
-    @media (min-width: variables.$breakpoint-tablet) {
-      width: 40rem;
-      height: 40rem;
-    }
-  }
-
   &__comments-wrapper {
     background: transparent;
     display: flex;

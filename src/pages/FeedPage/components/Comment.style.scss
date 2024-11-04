@@ -80,39 +80,4 @@
       transform: scale(1.2);
     }
   }
-
-  &__input {
-    width: 100%;
-    padding: 0.8rem 1.2rem;
-    border: none;
-    outline: none;
-    background-color: variables.$light-red;
-    color: variables.$gray;
-    border-radius: variables.$br-md;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-
-    &:focus {
-      background-color: variables.$white;
-      border-color: variables.$red;
-      box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-    }
-  }
-
-  &__input-wrapper {
-    position: relative;
-    display: none;
-    width: 100%;
-    border-radius: variables.$br-md;
-
-    &::after {
-      content: "press enter";
-      position: absolute;
-      top: 50%;
-      right: 1rem;
-      transform: translateY(-50%);
-      color: gray;
-      font-size: 1.4rem;
-      pointer-events: none;
-    }
-  }
 }

@@ -2,11 +2,13 @@ import "./FeedPage.style.scss"
 import "./components/Comment.style.scss"
 
 import "../../components/Modal-style.scss"
-import { dc, sanitizeInput, userData, uuid } from "../../helpers/helpers"
+import { dc, userData } from "../../helpers/helpers"
 import postList from "../../helpers/posts.json"
-import { openModal, Modal } from "../../components/Modal"
+import { Modal } from "../../components/Modal"
 import { Comment } from "./components/Comment"
 import { ReactionsWrapper } from "./components/Reactions"
+import { Post } from "./components/Post"
+import { Input } from "./components/Input"
 
 export interface Reply {
   reply_id: string
@@ -31,7 +33,7 @@ interface AuthorProps {
   photo: string
 }
 
-interface PostProps {
+export interface PostProps {
   post_id: number
   image: string
   content: string
@@ -40,70 +42,8 @@ interface PostProps {
 }
 
 const createCard = (post: PostProps) => {
-  const CommentInput = dc("input") as HTMLInputElement
-  CommentInput.type = "text"
-  CommentInput.style.display = "none"
-  CommentInput.classList.add("comment__input")
-  CommentInput.addEventListener("keyup", (event) => {
-    sanitizeInput(CommentInput)
-    if (event.key === "Enter") {
-      addComment()
-    }
-  })
-
-  const InputWrapper = dc("div")
-  InputWrapper.appendChild(CommentInput)
-  InputWrapper.classList.add("comment__input-wrapper")
-
-  const addComment = () => {
-    if (CommentInput.value) {
-      const sender: CommentProps = {
-        comment_id: uuid(),
-        comment_author_id: userData.userId,
-        comment_author_photo: userData.mePhoto,
-        comment_author_firstname: userData.firstName,
-        comment_author_lastname: userData.lastName,
-        content: CommentInput.value,
-        replies: [],
-      }
-
-      post.comments.unshift(sender)
-      CommentInput.value = ""
-      renderComments()
-
-      //hide input-wrapper after send data
-      InputWrapper.style.display = "none"
-    }
-  }
-
   const CommentsList = dc("section")
   CommentsList.classList.add("feed-page__comments-wrapper")
-
-  // ------------------- Author Info (name & photo) --------------
-  const AuthorFirsName = dc("span")
-  AuthorFirsName.textContent = post.author.first_name
-
-  const AuthorPhoto = dc("img") as HTMLImageElement
-  AuthorPhoto.classList.add("feed-page__author-photo")
-  AuthorPhoto.setAttribute("data-js", "authorImage")
-  AuthorPhoto.src = post.author.photo
-
-  const AuthorInfo = dc("div")
-  AuthorInfo.classList.add("feed-page__author-info")
-  AuthorInfo.appendChild(AuthorPhoto)
-  AuthorInfo.appendChild(AuthorFirsName)
-
-  // ------------------ Post Content  --------------------------
-  const PostContent = dc("p")
-  PostContent.classList.add("feed-page__post-content")
-  PostContent.textContent = post.content
-
-  const PostImg = dc("img") as HTMLImageElement
-  PostImg.classList.add("feed-page__post-image")
-  PostImg.src = post.image
-  PostImg.addEventListener("click", () => {
-    openModal(post.image, post.post_id)
-  })
 
   const Card = dc("section")
   Card.setAttribute("data-js", "feed-card")
@@ -117,6 +57,12 @@ const createCard = (post: PostProps) => {
     })
   }
 
+  const { InputWrapper, CommentInput } = Input({
+    userData,
+    post,
+    renderComments,
+  })
+
   const reactionsWrapper = ReactionsWrapper(
     post.post_id,
     renderComments,
@@ -125,6 +71,15 @@ const createCard = (post: PostProps) => {
   )
   const AnchorToScroll = dc("div")
   AnchorToScroll.setAttribute("data-js", `postImage-${post.post_id}`)
+
+  const postData = {
+    post_id: post.post_id,
+    image: post.image,
+    content: post.content,
+    author: post.author,
+  }
+
+  const { AuthorInfo, PostContent, PostImg } = Post(postData)
 
   Card.appendChild(AuthorInfo)
   if (post.image !== "") {

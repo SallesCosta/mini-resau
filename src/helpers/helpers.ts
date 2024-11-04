@@ -24,7 +24,19 @@ const firstName = me.first_name
 const lastName = me.last_name
 const mePhoto = me.photo
 
-export const userData = { firstName, lastName, mePhoto, userId: uuid() }
+export type userDataProps = {
+  firstName: string
+  lastName: string
+  mePhoto: string
+  userId: string
+}
+
+export const userData: userDataProps = {
+  firstName,
+  lastName,
+  mePhoto,
+  userId: uuid(),
+}
 
 function brefName(firstName: string, lastName: string): string {
   return `${firstName} ${lastName.charAt(0).toUpperCase()}.`
