@@ -1,4 +1,5 @@
 import "./Comment.style.scss"
+import "./Input.style.scss"
 import {
   commentUserName,
   dc,
@@ -7,6 +8,7 @@ import {
   uuid,
 } from "../../../helpers/helpers"
 import { CommentProps, Reply } from "../FeedPage"
+import { UserInfo } from "../../../components/UserInfo"
 
 export const Comment = (data: CommentProps) => {
   const CommentWrapper = dc("div")
@@ -25,7 +27,7 @@ export const Comment = (data: CommentProps) => {
   const ReplyInput = dc("input") as HTMLInputElement
   ReplyInput.type = "text"
   ReplyInput.style.display = "none"
-  ReplyInput.classList.add("comment__input")
+  ReplyInput.classList.add("input")
   ReplyInput.addEventListener("keyup", (event) => {
     sanitizeInput(ReplyInput)
     if (event.key === "Enter") {
@@ -35,7 +37,7 @@ export const Comment = (data: CommentProps) => {
 
   const InputWrapper = dc("div")
   InputWrapper.appendChild(ReplyInput)
-  InputWrapper.classList.add("comment__input-wrapper")
+  InputWrapper.classList.add("input-wrapper")
 
   const ReplyList = dc("ul")
   ReplyList.classList.add("comment__reply-list")
@@ -59,30 +61,12 @@ export const Comment = (data: CommentProps) => {
     }
   }
 
-  const UserInfo = (userImg: string, userName: string) => {
-    const userInfo = dc("div")
-    userInfo.classList.add("comment__user-info")
-
-    const Image = dc("img") as HTMLImageElement
-    Image.src = userImg
-    Image.classList.add("comment__user-photo")
-    Image.alt = "user image"
-
-    const UserName = dc("b")
-    UserName.textContent = userName
-
-    userInfo.appendChild(Image)
-    userInfo.appendChild(UserName)
-
-    return userInfo
-  }
-
   const ListItem = (content: string, userName: string, userImg: string) => {
     const listItem = dc("li")
     listItem.classList.add("comment__reply-item")
 
     const formatedUserName = `${userName}:`
-    listItem.appendChild(UserInfo(userImg, formatedUserName))
+    listItem.appendChild(UserInfo(formatedUserName, userImg))
 
     const contentElement = dc("span")
     contentElement.textContent = content
@@ -111,11 +95,11 @@ export const Comment = (data: CommentProps) => {
   renderReplies()
 
   const infoWrapper = dc("div")
-  infoWrapper.classList.add("comment__user-info")
+  infoWrapper.classList.add("comment__info")
   const commentAuthorName = `${data.comment_author_firstname} ${data.comment_author_lastname}: `
 
   infoWrapper.appendChild(
-    UserInfo(data.comment_author_photo, commentAuthorName),
+    UserInfo(commentAuthorName, data.comment_author_photo),
   )
 
   infoWrapper.appendChild(CommentText)

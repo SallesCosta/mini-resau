@@ -1,26 +1,12 @@
 @use "../../styles/_variables";
 
-// mobile first
-p,
-b,
-a,
-span {
-  font-size: 1.2rem;
-  @media (min-width: variables.$breakpoint-mobile) {
-    font-size: 1.4rem;
-  }
-}
-
 .feed-page {
-  height: 100dvh;
-  padding: 14px 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.6rem;
   align-items: center;
-  width: 100%;
+  margin-top: 1.6rem;
 
-  // ------------------- Card --------------
   &__card {
     background: variables.$light-gray;
     box-shadow: 0 0.3em 0.6em rgba(black, 0.2);

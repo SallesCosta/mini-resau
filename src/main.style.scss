@@ -1,0 +1,17 @@
+@use "./styles/_variables";
+
+p,
+b,
+a,
+li,
+span {
+  font-size: 1.2rem;
+  @media (min-width: variables.$breakpoint-mobile) {
+    font-size: 1.4rem;
+  }
+}
+
+.main {
+  height: 100dvh;
+  width: 100%;
+}

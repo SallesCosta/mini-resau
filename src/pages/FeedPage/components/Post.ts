@@ -1,23 +1,13 @@
 import "./Posts.style.scss"
 import { openModal } from "../../../components/Modal"
+import { UserInfo } from "../../../components/UserInfo"
 import { dc } from "../../../helpers/helpers"
 import { PostProps } from "../FeedPage"
 
 type PartialPost = Omit<PostProps, "comments">
 
 export const Post = ({ post_id, image, content, author }: PartialPost) => {
-  const AuthorFirsName = dc("span")
-  AuthorFirsName.textContent = author.first_name
-
-  const AuthorPhoto = dc("img") as HTMLImageElement
-  AuthorPhoto.classList.add("author-photo")
-  AuthorPhoto.setAttribute("data-js", "authorImage")
-  AuthorPhoto.src = author.photo
-
-  const AuthorInfo = dc("div")
-  AuthorInfo.classList.add("author-info")
-  AuthorInfo.appendChild(AuthorPhoto)
-  AuthorInfo.appendChild(AuthorFirsName)
+  const AuthorInfo = UserInfo(author.first_name, author.photo)
 
   const PostContent = dc("p")
   PostContent.classList.add("post-content")

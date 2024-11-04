@@ -1,3 +1,4 @@
+import "./main.style.scss"
 import { HeaderElement } from "./components/Header"
 import { FeedPage } from "./pages/FeedPage/FeedPage"
 import { FriendsPage } from "./pages/FriendsPage/FriendsPage"
@@ -19,7 +20,7 @@ const renderPage = (page: "feed" | "chat" | "friends") => {
   contentContainer.appendChild(component)
 }
 
-renderPage("feed")
+renderPage("friends")
 
 const headerButtons = HeaderElement.querySelectorAll('[data-js="nav-btn"]')
 headerButtons.forEach((button) => {
@@ -31,5 +32,6 @@ headerButtons.forEach((button) => {
 })
 
 const App = document.querySelector<HTMLDivElement>('[data-js="app"]')
+App?.classList.add("main")
 App?.appendChild(HeaderElement)
 App?.appendChild(contentContainer)

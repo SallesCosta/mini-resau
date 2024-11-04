@@ -1,22 +1,4 @@
 @use "../../../styles/_variables";
-
-.author-info {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  gap: 0.6rem;
-  justify-content: flex-start;
-  max-width: 50%;
-}
-
-.author-photo {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-}
 .post-content {
   text-align: center;
 }
