@@ -1,0 +1,33 @@
+@use "../../../styles/_variables";
+.wrapper {
+  background: variables.$white;
+  padding: 0.8rem;
+  position: relative;
+  cursor: pointer;
+  border-radius: variables.$br-lg;
+
+  &:hover {
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.1);
+    border: 1px solid variables.$gray;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 0.1rem;
+    transform: translatex(-50%);
+    background: variables.$light-gray;
+  }
+}
+
+.content {
+  color: variables.$red;
+  font-size: 1.6rem;
+}
+
+.time {
+  color: variables.$gray;
+  font-size: 1.2rem;
+}

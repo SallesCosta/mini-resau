@@ -4,11 +4,7 @@
       "id": "1",
       "contact": {
         "name": "Alice Johnson",
-        "profilePicture": "https://example.com/images/alice.jpg"
-      },
-      "lastMessage": {
-        "timestamp": "2024-11-04T12:45:00Z",
-        "content": "See you tomorrow!"
+        "profilePicture": "https://randomuser.me/api/portraits/women/58.jpg"
       },
       "messages": [
         {
@@ -32,11 +28,7 @@
       "id": "2",
       "contact": {
         "name": "Bob Smith",
-        "profilePicture": "https://example.com/images/bob.jpg"
-      },
-      "lastMessage": {
-        "timestamp": "2024-11-03T18:15:00Z",
-        "content": "Can we reschedule?"
+        "profilePicture": "https://randomuser.me/api/portraits/men/58.jpg"
       },
       "messages": [
         {

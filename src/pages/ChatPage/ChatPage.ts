@@ -1,5 +1,7 @@
+import "./ChatPage.style.scss"
 import { dc } from "../../helpers/helpers"
 import chat from "../../helpers/chat.json"
+import { List } from "./components/List"
 
 export type Message = {
   timestamp: string
@@ -7,61 +9,53 @@ export type Message = {
   content: string
 }
 
-export type Contact = {
+type Contact = {
   name: string
   profilePicture: string
 }
 
-export type ConversationSummary = {
-  contact: Contact
-  lastMessage: Message
-}
+// type ConversationSummary = {
+//   contact: Contact
+// }
 
 export type ConversationDetail = {
   contact: Contact
   messages: Message[]
 }
 
-export type ChatData = {
-  conversations: ConversationSummary[]
-}
+// export type ChatData = {
+//   conversations: ConversationSummary[]
+// }
 
 export const ChatPage = (id: string) => {
+  let c: string
   const selected = chat.conversations.find((c) => c.id === id)
 
-  const List = () => {
-    const list = dc("container")
-    list.setAttribute("data-js", "chat-list")
-    list.classList.add("list")
-
-    if (selected) {
-      console.log("selected :", selected)
-      const a = dc("b")
-      a.textContent = selected?.messages[0].content
-      list.appendChild(a)
-    }
-
-    return list
+  const setC = (v: string) => {
+    c = v
   }
 
-  const Chat = () => {
-    const chat = dc("container")
-    chat.setAttribute("data-js", "chat-messages")
-    chat.classList.add("chat")
+  // const ChatMessages = () => {
+  //   const chatMessages = dc("container")
+  //   chatMessages.setAttribute("data-js", "chat-messages")
+  //   chatMessages.classList.add("chat")
+  //
+  //   if (selected) {
+  //     const b = dc("b")
+  //     b.textContent = selected.contact.name
+  //     chatMessages.appendChild(b)
+  //   }
+  //   console.log("c: ", c)
+  //
+  //   return chat
+  // }
 
-    if (selected) {
-      const b = dc("b")
-      b.textContent = selected.contact.name
-      chat.appendChild(b)
-    }
-
-    return chat
-  }
+  const conv = chat.conversations
 
   const container = dc("container")
   container.classList.add("container")
-  container.appendChild(List())
-  container.appendChild(Chat())
+  container.appendChild(List({ conv, setC }))
+  // container.appendChild(ChatMessages())
 
   const chatPage = dc("div")
   chatPage.setAttribute("data-js", "chat-page")
