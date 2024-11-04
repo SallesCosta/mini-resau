@@ -1,0 +1,18 @@
+.container {
+  width: 80rem;
+  display: flex;
+  height: 90rem;
+  border: 1px solid red;
+}
+
+.list {
+  width: 30%;
+  height: 100%;
+  background: tomato;
+}
+
+.chat {
+  width: 70%;
+  background: gren;
+  height: 100%;
+}

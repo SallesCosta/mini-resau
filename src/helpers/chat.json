@@ -1,0 +1,55 @@
+{
+  "conversations": [
+    {
+      "id": "1",
+      "contact": {
+        "name": "Alice Johnson",
+        "profilePicture": "https://example.com/images/alice.jpg"
+      },
+      "lastMessage": {
+        "timestamp": "2024-11-04T12:45:00Z",
+        "content": "See you tomorrow!"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-04T12:45:00Z",
+          "sender": "Alice Johnson",
+          "content": "See you tomorrow!"
+        },
+        {
+          "timestamp": "2024-11-04T12:30:00Z",
+          "sender": "User",
+          "content": "Don't forget our meeting at 10."
+        },
+        {
+          "timestamp": "2024-11-04T12:20:00Z",
+          "sender": "Alice Johnson",
+          "content": "Got it, thank you!"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "contact": {
+        "name": "Bob Smith",
+        "profilePicture": "https://example.com/images/bob.jpg"
+      },
+      "lastMessage": {
+        "timestamp": "2024-11-03T18:15:00Z",
+        "content": "Can we reschedule?"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-03T18:15:00Z",
+          "sender": "Bob Smith",
+          "content": "Can we reschedule?"
+        },
+        {
+          "timestamp": "2024-11-03T17:50:00Z",
+          "sender": "User",
+          "content": "Are we still on for 4 PM?"
+        }
+      ]
+    }
+  ]
+}
