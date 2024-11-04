@@ -7,27 +7,39 @@ import { ChatPage } from "./pages/ChatPage/ChatPage"
 const contentContainer = document.createElement("div")
 contentContainer.setAttribute("data-js", "contentContainer")
 
-export const renderPage = (page: "feed" | "chat" | "friends") => {
+export type ChatPageContentProps = {
+  firstName: string
+  lastName: string
+}
+
+type RenderPageProps = {
+  page: "feed" | "chat" | "friends"
+  content?: ChatPageContentProps
+}
+
+export const renderPage = ({ page, content }: RenderPageProps) => {
   contentContainer.innerHTML = ""
+
+  const chat = content ? ChatPage(content) : null
 
   const component =
     {
       feed: FeedPage,
       friends: FriendsPage,
-      chat: ChatPage,
+      chat,
     }[page] || FeedPage
 
   contentContainer.appendChild(component)
 }
 
-renderPage("friends")
+renderPage({ page: "friends" })
 
 const headerButtons = HeaderElement.querySelectorAll('[data-js="nav-btn"]')
 headerButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     const target = event.currentTarget as HTMLElement
     const page = target.dataset.page as "feed" | "chat" | "friends"
-    renderPage(page)
+    renderPage({ page })
   })
 })
 

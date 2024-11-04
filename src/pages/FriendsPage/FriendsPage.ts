@@ -1,5 +1,6 @@
 import "./FriendsPage.style.scss"
 import { dc, sanitizeInput } from "../../helpers/helpers"
+import { renderPage } from "../../main"
 
 const initSortableList = (e: DragEvent) => {
   e.preventDefault()
@@ -47,6 +48,16 @@ const ListItem = (firstName: string, lastName: string): HTMLLIElement => {
     listItem.classList.remove("dragging")
     listItem.setAttribute("data-drag", "false")
   })
+
+  listItem.addEventListener("click", () =>
+    renderPage({
+      page: "chat",
+      content: {
+        firstName,
+        lastName,
+      },
+    }),
+  )
   return listItem
 }
 
@@ -55,7 +66,7 @@ FriendsList.setAttribute("data-js", "friend-list")
 FriendsList.classList.add("sortable-list")
 const renderNames = () => {
   FriendsList.innerHTML = ""
-  // hard coded names
+  //Pas besoin de JSON (amis codés en dur).
   FriendsList.appendChild(ListItem("Emily", "Johnson"))
   FriendsList.appendChild(ListItem("Michael", "Smith"))
   FriendsList.appendChild(ListItem("Olivia", "Brown"))
