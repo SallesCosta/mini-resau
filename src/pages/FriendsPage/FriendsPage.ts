@@ -1,5 +1,5 @@
-import { dc, sanitizeInput } from "../../helpers/helpers"
 import "./FriendsPage.style.scss"
+import { dc, sanitizeInput } from "../../helpers/helpers"
 
 const initSortableList = (e: DragEvent) => {
   e.preventDefault()
@@ -62,6 +62,20 @@ const renderNames = () => {
   FriendsList.appendChild(ListItem("Sebastian", "Garcia"))
   FriendsList.appendChild(ListItem("Harper", "Martinez"))
   FriendsList.appendChild(ListItem("Jack", "Robinson"))
+  FriendsList.appendChild(ListItem("James", "Williams"))
+  FriendsList.appendChild(ListItem("Sophia", "Jones"))
+  FriendsList.appendChild(ListItem("Benjamin", "Davis"))
+  FriendsList.appendChild(ListItem("Ava", "Miller"))
+  FriendsList.appendChild(ListItem("Elijah", "Wilson"))
+  FriendsList.appendChild(ListItem("Isabella", "Moore"))
+  FriendsList.appendChild(ListItem("Lucas", "Taylor"))
+  FriendsList.appendChild(ListItem("Mia", "Anderson"))
+  FriendsList.appendChild(ListItem("Alexander", "Thomas"))
+  FriendsList.appendChild(ListItem("Charlotte", "Jackson"))
+  FriendsList.appendChild(ListItem("Daniel", "White"))
+  FriendsList.appendChild(ListItem("Amelia", "Harris"))
+  FriendsList.appendChild(ListItem("Henry", "Martin"))
+  FriendsList.appendChild(ListItem("Evelyn", "Thompson"))
 }
 renderNames()
 
@@ -71,7 +85,6 @@ FriendsList.addEventListener("dragover", (e) =>
 )
 
 const hideList = () => {
-  console.log("hideList :")
   const allFriends = document.querySelectorAll<HTMLLIElement>(
     '[data-js="friend-item"]',
   )
@@ -81,7 +94,11 @@ const hideList = () => {
 
 const SearchInput = dc("input") as HTMLInputElement
 SearchInput.type = "text"
-// SearchInput.classList.add("input")
+setTimeout(() => {
+  SearchInput.focus()
+}, 0)
+SearchInput.setAttribute("placeholder", "search for first name or last name")
+SearchInput.classList.add("search-input")
 SearchInput.addEventListener("keyup", (event) => {
   SearchInput.value === "" ? renderNames() : hideList()
   sanitizeInput(SearchInput)
@@ -106,27 +123,12 @@ SearchInput.addEventListener("keyup", (event) => {
     })
   }
 })
-
 const InputWrapper = dc("div")
 InputWrapper.appendChild(SearchInput)
-// InputWrapper.classList.add("input-wrapper")
+InputWrapper.classList.add("search-input-wrapper")
 
 export const FriendsPage = dc("div")
 FriendsPage.setAttribute("data-js", "friends-page")
 FriendsPage.classList.add("friends-page")
 FriendsPage.appendChild(InputWrapper)
 FriendsPage.appendChild(FriendsList)
-// FriendsList.appendChild(ListItem("James", "Williams"))
-// FriendsList.appendChild(ListItem("Sophia", "Jones"))
-// FriendsList.appendChild(ListItem("Benjamin", "Davis"))
-// FriendsList.appendChild(ListItem("Ava", "Miller"))
-// FriendsList.appendChild(ListItem("Elijah", "Wilson"))
-// FriendsList.appendChild(ListItem("Isabella", "Moore"))
-// FriendsList.appendChild(ListItem("Lucas", "Taylor"))
-// FriendsList.appendChild(ListItem("Mia", "Anderson"))
-// FriendsList.appendChild(ListItem("Alexander", "Thomas"))
-// FriendsList.appendChild(ListItem("Charlotte", "Jackson"))
-// FriendsList.appendChild(ListItem("Daniel", "White"))
-// FriendsList.appendChild(ListItem("Amelia", "Harris"))
-// FriendsList.appendChild(ListItem("Henry", "Martin"))
-// FriendsList.appendChild(ListItem("Evelyn", "Thompson"))
