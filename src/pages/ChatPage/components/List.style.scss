@@ -22,6 +22,15 @@
   }
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5rem;
+  background: pink;
+}
+
 .content {
   color: variables.$red;
   font-size: 1.6rem;

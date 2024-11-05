@@ -2,13 +2,18 @@ import "./List.style.scss"
 import { UserInfo } from "@/components/UserInfo"
 import { dc, formatTimestamp } from "@/helpers/helpers"
 import { ConversationDetail } from "../ChatPage"
+import { ChatMessages, EmptyState } from "./ChatMessages"
 
 type ListProps = {
   conv: ConversationDetail[]
-  setC: (v: string) => void
 }
 
-export const List = ({ conv, setC }: ListProps) => {
+export const Wrapper = dc("div")
+Wrapper.setAttribute("data-js", "chat-messages")
+Wrapper.classList.add("chat")
+Wrapper.appendChild(EmptyState)
+
+export const List = ({ conv }: ListProps) => {
   const ListItem = (m: ConversationDetail) => {
     const Content = dc("p")
     Content.classList.add("content")
@@ -24,7 +29,15 @@ export const List = ({ conv, setC }: ListProps) => {
     listItem.appendChild(UserInfo(m.contact.name, m.contact.profilePicture))
     listItem.appendChild(Content)
     listItem.appendChild(Time)
-    setC(m.id)
+    listItem.addEventListener("click", () => {
+      const wrapperMessages = document.querySelector(
+        '[data-js="chat-messages"]',
+      ) as HTMLElement
+
+      wrapperMessages.innerHTML = ""
+
+      wrapperMessages.appendChild(ChatMessages(m))
+    })
     return listItem
   }
 
@@ -34,13 +47,6 @@ export const List = ({ conv, setC }: ListProps) => {
   conv.forEach((m) => {
     list.appendChild(ListItem(m))
   })
-
-  // if (selected) {
-  //   console.log("selected :", selected)
-  //   const a = dc("b")
-  //   a.textContent = selected?.messages[0].content
-  //   list.appendChild(a)
-  // }
 
   return list
 }
