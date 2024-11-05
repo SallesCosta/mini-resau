@@ -45,10 +45,12 @@ function brefName(firstName: string, lastName: string): string {
 export const commentUserName = brefName(firstName, lastName)
 
 export const sanitizeInput = (input: HTMLInputElement) => {
-  const allowedChars = /^[a-zA-Z0-9\s.,!?]*$/
-
+  const allowedChars = /^[a-zA-Z0-9\s.,!?'áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]*$/
   if (!allowedChars.test(input.value)) {
-    input.value = input.value.replace(/[^a-zA-Z0-9\s.,!?]/g, "")
+    input.value = input.value.replace(
+      /[^a-zA-Z0-9\s.,!?'áàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]/g,
+      "",
+    )
     alert("Invalid characters have been removed.")
   }
 }

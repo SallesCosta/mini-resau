@@ -1,4 +1,3 @@
-import "./List.style.scss"
 import { UserInfo } from "@/components/UserInfo"
 import { dc, formatTimestamp } from "@/helpers/helpers"
 import { ConversationDetail } from "../ChatPage"
@@ -11,21 +10,27 @@ type ListProps = {
 export const Wrapper = dc("div")
 Wrapper.setAttribute("data-js", "chat-messages")
 Wrapper.classList.add("chat")
+Wrapper.classList.add("scrollable")
 Wrapper.appendChild(EmptyState)
 
 export const List = ({ conv }: ListProps) => {
   const ListItem = (m: ConversationDetail) => {
     const Content = dc("p")
-    Content.classList.add("content")
-    Content.textContent = m.messages[0].content
+
+    const lastMessage = m.messages[m.messages.length - 1]
+    Content.classList.add(lastMessage.sender === "User" ? "blue" : "red")
+    Content.textContent = lastMessage.content
 
     const Time = dc("span")
     Time.classList.add("time")
-    const t = formatTimestamp(m.messages[m.messages.length - 1].timestamp)
+    const t = formatTimestamp(lastMessage.timestamp)
     Time.textContent = t
 
     const listItem = dc("div")
     listItem.classList.add("wrapper")
+    listItem.classList.add("scrollable")
+
+    listItem.setAttribute("data-js", `chat-id-${m.id}`)
     listItem.appendChild(UserInfo(m.contact.name, m.contact.profilePicture))
     listItem.appendChild(Content)
     listItem.appendChild(Time)
@@ -41,12 +46,18 @@ export const List = ({ conv }: ListProps) => {
     return listItem
   }
 
+  const renderItems = () => {
+    list.innerHTML = ""
+    conv.forEach((m) => {
+      list.appendChild(ListItem(m))
+    })
+  }
+
   const list = dc("aside")
   list.setAttribute("data-js", "chat-list")
   list.classList.add("list")
-  conv.forEach((m) => {
-    list.appendChild(ListItem(m))
-  })
+
+  renderItems()
 
   return list
 }

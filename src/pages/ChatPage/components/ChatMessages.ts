@@ -1,8 +1,6 @@
-import "./ChatMessages.style.scss"
-import { dc, formatTimestamp } from "@/helpers/helpers"
+import { dc, formatTimestamp, sanitizeInput } from "@/helpers/helpers"
 import { ConversationDetail } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
-// import me from "@/helpers/me.json"
 
 type msgProps = {
   timestamp: string
@@ -28,8 +26,6 @@ const msg = ({ timestamp, sender, content }: msgProps) => {
 export const ChatMessages = (selected: ConversationDetail | null) => {
   const chatMessages = dc("container")
 
-  chatMessages.classList.add("msgContainer")
-
   if (!selected) return EmptyState
 
   const data = {
@@ -38,16 +34,78 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
     messages: selected.messages,
   }
 
-  console.log("messages :", data.messages)
-
   const header = dc("header")
   header.classList.add("header")
   header.appendChild(UserInfo(data.name, data.image))
 
+  const body = dc("div")
+  body.classList.add("msgContainer")
+
   chatMessages.appendChild(header)
-  data.messages.reverse().forEach((i) => {
-    chatMessages.appendChild(msg(i))
+  chatMessages.appendChild(body)
+
+  const renderComments = () => {
+    const listItem = document.querySelector(
+      `[data-js="chat-id-${selected.id}"]`,
+    )
+
+    const Content = dc("p")
+
+    const lastMessage = selected.messages[selected.messages.length - 1]
+
+    Content.classList.add(lastMessage.sender === "User" ? "blue" : "red")
+    Content.textContent = lastMessage.content
+
+    const Time = dc("span")
+    Time.classList.add("time")
+    const t = formatTimestamp(
+      selected.messages[selected.messages.length - 1].timestamp,
+    )
+    Time.textContent = t
+
+    if (listItem) {
+      listItem.innerHTML = ""
+      listItem.appendChild(
+        UserInfo(selected.contact.name, selected.contact.profilePicture),
+      )
+      listItem.appendChild(Content)
+      listItem.appendChild(Time)
+    }
+    body.innerHTML = ""
+    data.messages.forEach((i) => {
+      body.appendChild(msg(i))
+    })
+  }
+  renderComments()
+
+  const ChatInput = dc("input") as HTMLInputElement
+  ChatInput.type = "text"
+  setTimeout(() => {
+    ChatInput.focus()
+  }, 0)
+  ChatInput.setAttribute("placeholder", "type your message")
+  ChatInput.classList.add("chat-input")
+  ChatInput.addEventListener("keyup", (event) => {
+    sanitizeInput(ChatInput)
+
+    if (event.key === "Enter") {
+      const timestamp = new Date().toISOString()
+      data.messages.push({
+        content: ChatInput.value,
+        sender: "User",
+        timestamp,
+      })
+
+      ChatInput.value = ""
+      renderComments()
+      console.log(data.messages)
+    }
   })
+
+  const InputWrapper = dc("div")
+  InputWrapper.appendChild(ChatInput)
+  InputWrapper.classList.add("chat-input-wrapper")
+  chatMessages.appendChild(InputWrapper)
 
   return chatMessages
 }

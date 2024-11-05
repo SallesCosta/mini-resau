@@ -8,9 +8,9 @@
       },
       "messages": [
         {
-          "timestamp": "2024-11-04T12:45:00Z",
+          "timestamp": "2024-11-04T12:20:00Z",
           "sender": "Alice Johnson",
-          "content": "See you tomorrow!"
+          "content": "Got it, thank you!"
         },
         {
           "timestamp": "2024-11-04T12:30:00Z",
@@ -18,9 +18,19 @@
           "content": "Don't forget our meeting at 10."
         },
         {
-          "timestamp": "2024-11-04T12:20:00Z",
+          "timestamp": "2024-11-04T12:45:00Z",
           "sender": "Alice Johnson",
-          "content": "Got it, thank you!"
+          "content": "See you tomorrow!"
+        },
+        {
+          "timestamp": "2024-11-04T13:00:00Z",
+          "sender": "User",
+          "content": "I'm running a bit late, will be there in 15 minutes."
+        },
+        {
+          "timestamp": "2024-11-04T13:05:00Z",
+          "sender": "Alice Johnson",
+          "content": "No worries, I'll wait for you."
         }
       ]
     },
@@ -32,14 +42,87 @@
       },
       "messages": [
         {
+          "timestamp": "2024-11-03T17:50:00Z",
+          "sender": "User",
+          "content": "Are we still on for 4 PM?"
+        },
+        {
           "timestamp": "2024-11-03T18:15:00Z",
           "sender": "Bob Smith",
           "content": "Can we reschedule?"
         },
         {
-          "timestamp": "2024-11-03T17:50:00Z",
+          "timestamp": "2024-11-03T18:20:00Z",
           "sender": "User",
-          "content": "Are we still on for 4 PM?"
+          "content": "Sure, what time works better for you?"
+        },
+        {
+          "timestamp": "2024-11-03T18:25:00Z",
+          "sender": "Bob Smith",
+          "content": "How about 5 PM?"
+        },
+        {
+          "timestamp": "2024-11-03T18:27:00Z",
+          "sender": "User",
+          "content": "Sounds good, see you then."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "contact": {
+        "name": "Emma Dupont",
+        "profilePicture": "https://randomuser.me/api/portraits/women/42.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-05T09:30:00Z",
+          "sender": "Emma Dupont",
+          "content": "Good morning! Are we still on for our call at 11?"
+        },
+        {
+          "timestamp": "2024-11-05T09:35:00Z",
+          "sender": "User",
+          "content": "Yes, I'm looking forward to it. Talk to you then!"
+        },
+        {
+          "timestamp": "2024-11-05T11:00:00Z",
+          "sender": "Emma Dupont",
+          "content": "Sorry, I'm running a bit late. Can we start in 10 minutes?"
+        },
+        {
+          "timestamp": "2024-11-05T11:10:00Z",
+          "sender": "User",
+          "content": "No problem, take your time. I'll be here."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "contact": {
+        "name": "Pierre Lefebvre",
+        "profilePicture": "https://randomuser.me/api/portraits/men/42.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T14:00:00Z",
+          "sender": "User",
+          "content": "Hi Pierre, do you have a few minutes to discuss the project?"
+        },
+        {
+          "timestamp": "2024-11-06T14:02:00Z",
+          "sender": "Pierre Lefebvre",
+          "content": "Oui, of course. What would you like to discuss?"
+        },
+        {
+          "timestamp": "2024-11-06T14:05:00Z",
+          "sender": "User",
+          "content": "I wanted to go over the timeline for the upcoming milestones."
+        },
+        {
+          "timestamp": "2024-11-06T14:10:00Z",
+          "sender": "Pierre Lefebvre",
+          "content": "Très bien, let's review the plan together."
         }
       ]
     }
