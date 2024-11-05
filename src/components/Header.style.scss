@@ -7,6 +7,9 @@
   &__link-page {
     cursor: pointer;
     color: variables.$gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       transform: scale(1.1);
@@ -21,10 +24,14 @@
   }
 
   &__nav-wrapper {
-    padding: 8px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 3rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }

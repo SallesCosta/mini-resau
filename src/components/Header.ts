@@ -2,6 +2,17 @@ import "./Header.style.scss"
 import { dc } from "@/helpers/helpers.ts"
 import { ChatIcon, FriendsIcon, HomeIcon } from "./SvgIcons.ts"
 
+const Wrapper = (element: HTMLElement, label: string) => {
+  const labelText = dc("span")
+  labelText.textContent = label
+  const wrapper = dc("div")
+  wrapper.classList.add("header-content__wrapper")
+  wrapper.appendChild(element)
+  wrapper.appendChild(labelText)
+
+  return wrapper
+}
+
 const linkToChatPage = dc("a")
 linkToChatPage.innerHTML = `
 ${ChatIcon()}
@@ -24,9 +35,9 @@ linkToFeedPage.classList.add("header-content__link-page")
 
 const navigation = dc("nav")
 navigation?.classList.add("header-content__nav-wrapper")
-navigation?.appendChild(linkToFeedPage)
-navigation?.appendChild(linkToChatPage)
-navigation?.appendChild(linkToFriendsPage)
+navigation?.appendChild(Wrapper(linkToFeedPage, "feed"))
+navigation?.appendChild(Wrapper(linkToFriendsPage, "friends"))
+navigation?.appendChild(Wrapper(linkToChatPage, "chat"))
 
 const mobileTitle = dc("h1")
 mobileTitle.textContent = "Mini-Résau"
