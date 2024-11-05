@@ -59,11 +59,46 @@ export function formatTimestamp(timestamp: string) {
   const date = new Date(timestamp)
 
   const day = String(date.getDate()).padStart(2, "0")
-  const month = String(date.getMonth() + 1).padStart(2, "0") // Mês é 0-indexado
+  const month = String(date.getMonth() + 1).padStart(2, "0")
   const year = date.getFullYear()
 
   const hours = String(date.getHours()).padStart(2, "0")
   const minutes = String(date.getMinutes()).padStart(2, "0")
 
   return `${day}/${month}/${year} ${hours}:${minutes}`
+}
+
+type msgProps = {
+  timestamp: string
+  sender: string
+  content: string
+}
+
+type Contact = {
+  name: string
+  profilePicture: string
+}
+
+export type ConversationDetail = {
+  contact: Contact
+  messages: msgProps[]
+  id: string
+}
+
+export const reordChatMessages = (messages: msgProps[]) => {
+  return messages.sort(
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
+  )
+}
+
+export function sortConversationsByTimestamp(
+  conversations: ConversationDetail[],
+) {
+  return conversations.map((conversation) => ({
+    ...conversation,
+    messages: conversation.messages.sort(
+      (a, b) =>
+        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
+    ),
+  }))
 }

@@ -1,5 +1,9 @@
 import { UserInfo } from "@/components/UserInfo"
-import { dc, formatTimestamp } from "@/helpers/helpers"
+import {
+  dc,
+  formatTimestamp,
+  sortConversationsByTimestamp,
+} from "@/helpers/helpers"
 import { ConversationDetail } from "../ChatPage"
 import { ChatMessages, EmptyState } from "./ChatMessages"
 
@@ -48,7 +52,9 @@ export const List = ({ conv }: ListProps) => {
 
   const renderItems = () => {
     list.innerHTML = ""
-    conv.forEach((m) => {
+
+    const messagesNewOrder = sortConversationsByTimestamp(conv)
+    messagesNewOrder.forEach((m) => {
       list.appendChild(ListItem(m))
     })
   }

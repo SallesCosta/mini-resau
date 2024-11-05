@@ -1,6 +1,7 @@
 import { dc, formatTimestamp, sanitizeInput } from "@/helpers/helpers"
 import { ConversationDetail } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
+import { List } from "./List"
 
 type msgProps = {
   timestamp: string
@@ -16,7 +17,6 @@ const msg = ({ timestamp, sender, content }: msgProps) => {
 
   msgWrapper.innerHTML = `
     <p>${content}</p>
-    <!-- <span>${sender}</span> -->
     <span>${formatTimestamp(timestamp)}</span>
   `
 
@@ -44,10 +44,15 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
   chatMessages.appendChild(header)
   chatMessages.appendChild(body)
 
-  const renderComments = () => {
+  const renderList = () => {
     const listItem = document.querySelector(
       `[data-js="chat-id-${selected.id}"]`,
     )
+
+    // const container = document.querySelector(`[data-js="main-container}"]`)
+    // if (container) {
+    //   container.appendChild(List({ conv: chat.conversations }))
+    // }
 
     const Content = dc("p")
 
@@ -58,9 +63,7 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
 
     const Time = dc("span")
     Time.classList.add("time")
-    const t = formatTimestamp(
-      selected.messages[selected.messages.length - 1].timestamp,
-    )
+    const t = formatTimestamp(lastMessage.timestamp)
     Time.textContent = t
 
     if (listItem) {
@@ -71,12 +74,22 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       listItem.appendChild(Content)
       listItem.appendChild(Time)
     }
+
+    const scrollToBottom = () => {
+      body.scrollTop = body.scrollHeight
+    }
+
     body.innerHTML = ""
+    // const messagesNewOrder = reordChatMessages(data.messages)
+    // console.log("data :", data.messages)
+    // console.log("messagesNewOrder :", messagesNewOrder)
+
     data.messages.forEach((i) => {
       body.appendChild(msg(i))
+      scrollToBottom()
     })
   }
-  renderComments()
+  renderList()
 
   const ChatInput = dc("input") as HTMLInputElement
   ChatInput.type = "text"
@@ -97,8 +110,7 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       })
 
       ChatInput.value = ""
-      renderComments()
-      console.log(data.messages)
+      renderList()
     }
   })
 
