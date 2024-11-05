@@ -1,7 +1,7 @@
 import "./Posts.style.scss"
-import { openModal } from "../../../components/Modal"
-import { UserInfo } from "../../../components/UserInfo"
-import { dc } from "../../../helpers/helpers"
+import { openModal } from "@/components/Modal"
+import { UserInfo } from "@/components/UserInfo"
+import { dc } from "@/helpers/helpers"
 import { PostProps } from "../FeedPage"
 
 type PartialPost = Omit<PostProps, "comments">

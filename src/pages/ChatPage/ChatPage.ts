@@ -1,6 +1,6 @@
 import "./ChatPage.style.scss"
-import { dc } from "../../helpers/helpers"
-import chat from "../../helpers/chat.json"
+import { dc } from "@/helpers/helpers"
+import chat from "@/helpers/chat.json"
 import { List } from "./components/List"
 
 export type Message = {

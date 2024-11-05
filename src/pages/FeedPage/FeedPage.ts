@@ -1,14 +1,13 @@
 import "./FeedPage.style.scss"
 import "./components/Comment.style.scss"
-
-import "../../components/Modal-style.scss"
-import { dc, userData } from "../../helpers/helpers"
-import postList from "../../helpers/posts.json"
-import { Modal } from "../../components/Modal"
+import "@/components/Modal-style.scss"
+import postList from "@/helpers/posts.json"
 import { Comment } from "./components/Comment"
 import { ReactionsWrapper } from "./components/Reactions"
 import { Post } from "./components/Post"
 import { Input } from "./components/Input"
+import { dc, userData } from "@/helpers/helpers"
+import { Modal } from "@/components/Modal"
 
 export interface Reply {
   reply_id: string

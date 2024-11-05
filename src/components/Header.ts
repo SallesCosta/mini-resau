@@ -1,5 +1,5 @@
 import "./Header.style.scss"
-import { dc } from "../helpers/helpers.ts"
+import { dc } from "@/helpers/helpers.ts"
 import { ChatIcon, FriendsIcon, HomeIcon } from "./SvgIcons.ts"
 
 const linkToChatPage = dc("a")
@@ -22,7 +22,7 @@ linkToFeedPage.setAttribute("data-js", "nav-btn")
 linkToFeedPage.setAttribute("data-page", "feed")
 linkToFeedPage.classList.add("header-content__link-page")
 
-const navigation = dc("div")
+const navigation = dc("nav")
 navigation?.classList.add("header-content__nav-wrapper")
 navigation?.appendChild(linkToFeedPage)
 navigation?.appendChild(linkToChatPage)
