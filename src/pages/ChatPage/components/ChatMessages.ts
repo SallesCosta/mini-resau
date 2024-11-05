@@ -1,7 +1,6 @@
 import { dc, formatTimestamp, sanitizeInput } from "@/helpers/helpers"
 import { ConversationDetail } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
-import { List } from "./List"
 
 type msgProps = {
   timestamp: string
@@ -44,15 +43,11 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
   chatMessages.appendChild(header)
   chatMessages.appendChild(body)
 
-  const renderList = () => {
+  const renderList = (firstRender: boolean) => {
+    console.log("foi :")
     const listItem = document.querySelector(
       `[data-js="chat-id-${selected.id}"]`,
     )
-
-    // const container = document.querySelector(`[data-js="main-container}"]`)
-    // if (container) {
-    //   container.appendChild(List({ conv: chat.conversations }))
-    // }
 
     const Content = dc("p")
 
@@ -66,13 +61,20 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
     const t = formatTimestamp(lastMessage.timestamp)
     Time.textContent = t
 
-    if (listItem) {
-      listItem.innerHTML = ""
-      listItem.appendChild(
-        UserInfo(selected.contact.name, selected.contact.profilePicture),
-      )
-      listItem.appendChild(Content)
-      listItem.appendChild(Time)
+    if (listItem && !firstRender) {
+      const allCards = document.querySelectorAll('[data-card="card"]')
+      allCards.forEach((c) => {
+        if (c.classList.contains("display-none")) {
+          return
+        } else {
+          listItem.innerHTML = ""
+          listItem.appendChild(
+            UserInfo(selected.contact.name, selected.contact.profilePicture),
+          )
+          listItem.appendChild(Content)
+          listItem.appendChild(Time)
+        }
+      })
     }
 
     const scrollToBottom = () => {
@@ -80,16 +82,13 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
     }
 
     body.innerHTML = ""
-    // const messagesNewOrder = reordChatMessages(data.messages)
-    // console.log("data :", data.messages)
-    // console.log("messagesNewOrder :", messagesNewOrder)
 
     data.messages.forEach((i) => {
       body.appendChild(msg(i))
       scrollToBottom()
     })
   }
-  renderList()
+  renderList(true)
 
   const ChatInput = dc("input") as HTMLInputElement
   ChatInput.type = "text"
@@ -110,7 +109,7 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       })
 
       ChatInput.value = ""
-      renderList()
+      renderList(false)
     }
   })
 
