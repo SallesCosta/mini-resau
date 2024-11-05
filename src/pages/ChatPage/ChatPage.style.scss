@@ -2,12 +2,13 @@
   width: 80rem;
   display: flex;
   height: 90rem;
-  // border: 1px solid red;
+  border: 1px solid red;
 }
 
 .list {
   display: flex;
   flex-direction: column;
+  border: 1px solid red;
   gap: 1rem;
   padding: 1rem;
   width: 30%;
