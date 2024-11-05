@@ -1,6 +1,7 @@
 import { renderPage } from "@/main"
 import "./FriendsPage.style.scss"
 import { dc, sanitizeInput } from "@/helpers/helpers"
+import { createSkeleton } from "@/components/Skeleton"
 
 const initSortableList = (e: DragEvent) => {
   e.preventDefault()
@@ -101,8 +102,24 @@ const hideList = () => {
   const allFriends = document.querySelectorAll<HTMLLIElement>(
     '[data-js="friend-item"]',
   )
-  const ArrayAllFriends = Array.from(allFriends)
-  ArrayAllFriends.forEach((f) => f.classList.add("display-none"))
+  const arrayAllFriends = Array.from(allFriends)
+
+  let isAlreadyHidden = true
+
+  arrayAllFriends.forEach((friend) => {
+    if (!friend.classList.contains("display-none")) {
+      friend.classList.add("display-none")
+      isAlreadyHidden = false
+    }
+  })
+
+  if (!isAlreadyHidden) {
+    for (let i = 0; i < 3; i++) {
+      const skeleton = createSkeleton("100%", "42px")
+      skeleton.setAttribute("data-js", "skeletonElement")
+      FriendsList.appendChild(skeleton)
+    }
+  }
 }
 
 const SearchInput = dc("input") as HTMLInputElement
@@ -132,6 +149,12 @@ SearchInput.addEventListener("keyup", (event) => {
         friend.classList.remove("display-none")
       } else {
         friend.classList.toggle("display-none", !isMatch)
+        const skeletons = document.querySelectorAll(
+          '[data-js="skeletonElement"]',
+        )
+        if (searchTerm !== "") {
+          skeletons.forEach((skeleton) => skeleton.remove())
+        }
       }
     })
   }
