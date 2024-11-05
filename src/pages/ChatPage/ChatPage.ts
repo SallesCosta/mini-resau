@@ -13,15 +13,15 @@ type Contact = {
   name: string
   profilePicture: string
 }
+export type ConversationDetail = {
+  contact: Contact
+  messages: Message[]
+  id: string
+}
 
 // type ConversationSummary = {
 //   contact: Contact
 // }
-
-export type ConversationDetail = {
-  contact: Contact
-  messages: Message[]
-}
 
 // export type ChatData = {
 //   conversations: ConversationSummary[]
@@ -34,28 +34,12 @@ export const ChatPage = (id: string) => {
   const setC = (v: string) => {
     c = v
   }
-
-  // const ChatMessages = () => {
-  //   const chatMessages = dc("container")
-  //   chatMessages.setAttribute("data-js", "chat-messages")
-  //   chatMessages.classList.add("chat")
-  //
-  //   if (selected) {
-  //     const b = dc("b")
-  //     b.textContent = selected.contact.name
-  //     chatMessages.appendChild(b)
-  //   }
-  //   console.log("c: ", c)
-  //
-  //   return chat
-  // }
-
   const conv = chat.conversations
 
   const container = dc("container")
   container.classList.add("container")
   container.appendChild(List({ conv, setC }))
-  // container.appendChild(ChatMessages())
+  container.appendChild(ChatMessages(selected))
 
   const chatPage = dc("div")
   chatPage.setAttribute("data-js", "chat-page")

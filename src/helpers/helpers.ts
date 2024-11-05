@@ -52,3 +52,16 @@ export const sanitizeInput = (input: HTMLInputElement) => {
     alert("Invalid characters have been removed.")
   }
 }
+
+export function formatTimestamp(timestamp: string) {
+  const date = new Date(timestamp)
+
+  const day = String(date.getDate()).padStart(2, "0")
+  const month = String(date.getMonth() + 1).padStart(2, "0") // Mês é 0-indexado
+  const year = date.getFullYear()
+
+  const hours = String(date.getHours()).padStart(2, "0")
+  const minutes = String(date.getMinutes()).padStart(2, "0")
+
+  return `${day}/${month}/${year} ${hours}:${minutes}`
+}
