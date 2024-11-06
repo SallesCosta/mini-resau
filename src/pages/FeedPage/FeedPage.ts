@@ -1,6 +1,6 @@
 import "./FeedPage.style.scss"
 import "./components/Comment.style.scss"
-import "@/components/Modal-style.scss"
+import "@/components/Modal.style.scss"
 import postList from "@/helpers/posts.json"
 import { Comment } from "./components/Comment"
 import { ReactionsWrapper } from "./components/Reactions"

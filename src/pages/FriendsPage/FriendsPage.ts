@@ -28,11 +28,7 @@ const initSortableList = (e: DragEvent) => {
 
   sortableList.insertBefore(draggingItem, nextSibling)
 }
-const ListItem = (
-  firstName: string,
-  lastName: string,
-  userId: string,
-): HTMLLIElement => {
+const ListItem = (firstName: string, lastName: string): HTMLLIElement => {
   const listItem = dc("li") as HTMLLIElement
   listItem.classList.add("item")
   listItem.setAttribute("data-js", "friend-item")
@@ -57,7 +53,6 @@ const ListItem = (
   listItem.addEventListener("click", () =>
     renderPage({
       page: "chat",
-      userId: userId,
     }),
   )
   return listItem
@@ -70,26 +65,26 @@ const renderNames = () => {
   FriendsList.innerHTML = ""
   //Pas besoin de JSON (amis codés en dur).
 
-  FriendsList.appendChild(ListItem("Emily", "Johnson", "1"))
-  FriendsList.appendChild(ListItem("Michael", "Smith", "2"))
-  FriendsList.appendChild(ListItem("Olivia", "Brown", "3"))
-  FriendsList.appendChild(ListItem("Sebastian", "Garcia", "4"))
-  FriendsList.appendChild(ListItem("Harper", "Martinez", "5"))
-  FriendsList.appendChild(ListItem("Jack", "Robinson", "6"))
-  FriendsList.appendChild(ListItem("James", "Williams", "7"))
-  FriendsList.appendChild(ListItem("Sophia", "Jones", "8"))
-  FriendsList.appendChild(ListItem("Benjamin", "Davis", "9"))
-  FriendsList.appendChild(ListItem("Ava", "Miller", "10"))
-  FriendsList.appendChild(ListItem("Elijah", "Wilson", "11"))
-  FriendsList.appendChild(ListItem("Isabella", "Moore", "12"))
-  FriendsList.appendChild(ListItem("Lucas", "Taylor", "13"))
-  FriendsList.appendChild(ListItem("Mia", "Anderson", "14"))
-  FriendsList.appendChild(ListItem("Alexander", "Thomas", "15"))
-  FriendsList.appendChild(ListItem("Charlotte", "Jackson", "16"))
-  FriendsList.appendChild(ListItem("Daniel", "White", "17"))
-  FriendsList.appendChild(ListItem("Amelia", "Harris", "18"))
-  FriendsList.appendChild(ListItem("Henry", "Martin", "19"))
-  FriendsList.appendChild(ListItem("Evelyn", "Thompson", "20"))
+  FriendsList.appendChild(ListItem("Emily", "Johnson"))
+  FriendsList.appendChild(ListItem("Michael", "Smith"))
+  FriendsList.appendChild(ListItem("Olivia", "Brown"))
+  FriendsList.appendChild(ListItem("Sebastian", "Garcia"))
+  FriendsList.appendChild(ListItem("Harper", "Martinez"))
+  FriendsList.appendChild(ListItem("Jack", "Robinson"))
+  FriendsList.appendChild(ListItem("James", "Williams"))
+  FriendsList.appendChild(ListItem("Sophia", "Jones"))
+  FriendsList.appendChild(ListItem("Benjamin", "Davis"))
+  FriendsList.appendChild(ListItem("Ava", "Miller"))
+  FriendsList.appendChild(ListItem("Elijah", "Wilson"))
+  FriendsList.appendChild(ListItem("Isabella", "Moore"))
+  FriendsList.appendChild(ListItem("Lucas", "Taylor"))
+  FriendsList.appendChild(ListItem("Mia", "Anderson"))
+  FriendsList.appendChild(ListItem("Alexander", "Thomas"))
+  FriendsList.appendChild(ListItem("Charlotte", "Jackson"))
+  FriendsList.appendChild(ListItem("Daniel", "White"))
+  FriendsList.appendChild(ListItem("Amelia", "Harris"))
+  FriendsList.appendChild(ListItem("Henry", "Martin"))
+  FriendsList.appendChild(ListItem("Evelyn", "Thompson"))
 }
 renderNames()
 

@@ -1,4 +1,4 @@
-import "./Modal-style.scss"
+import "./Modal.style.scss"
 import { dc, navigateTo } from "../helpers/helpers"
 
 const App = document.querySelector<HTMLDivElement>('[data-js="app"]')

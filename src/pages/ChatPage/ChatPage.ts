@@ -40,16 +40,12 @@ Wrapper.classList.add("chat")
 Wrapper.classList.add("scrollable")
 Wrapper.appendChild(EmptyState)
 
-export const ChatPage = () => {
-  const container = dc("container")
-  container.setAttribute("data-js", "main-container")
-  container.classList.add("container")
-  container.appendChild(List({ conv: chat.conversations }))
-  container.appendChild(Wrapper)
+const container = dc("container")
+container.setAttribute("data-js", "main-container")
+container.classList.add("container")
+container.appendChild(List({ conv: chat.conversations }))
+container.appendChild(Wrapper)
 
-  const chatPage = dc("div")
-  chatPage.setAttribute("data-js", "chat-page")
-  chatPage.appendChild(container)
-
-  return chatPage
-}
+export const ChatPage = dc("div")
+ChatPage.setAttribute("data-js", "chat-page")
+ChatPage.appendChild(container)

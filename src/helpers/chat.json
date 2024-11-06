@@ -125,6 +125,399 @@
           "content": "Très bien, let's review the plan together."
         }
       ]
+    },
+    {
+      "id": "5",
+      "contact": {
+        "name": "Sarah Chen",
+        "profilePicture": "https://randomuser.me/api/portraits/women/28.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T15:30:00Z",
+          "sender": "Sarah Chen",
+          "content": "Hey! Just finished reviewing the latest designs."
+        },
+        {
+          "timestamp": "2024-11-06T15:32:00Z",
+          "sender": "User",
+          "content": "Great! What do you think about the new color scheme?"
+        },
+        {
+          "timestamp": "2024-11-06T15:35:00Z",
+          "sender": "Sarah Chen",
+          "content": "Love it! The contrast is much better now. But I have a few suggestions for the typography."
+        },
+        {
+          "timestamp": "2024-11-06T15:38:00Z",
+          "sender": "User",
+          "content": "I'd love to hear them. Want to jump on a quick call?"
+        },
+        {
+          "timestamp": "2024-11-06T15:40:00Z",
+          "sender": "Sarah Chen",
+          "content": "Perfect timing, I'm free now! 📞"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "contact": {
+        "name": "Marcus Rodriguez",
+        "profilePicture": "https://randomuser.me/api/portraits/men/32.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T16:00:00Z",
+          "sender": "Marcus Rodriguez",
+          "content": "Quick update on the backend deployment 🚀"
+        },
+        {
+          "timestamp": "2024-11-06T16:02:00Z",
+          "sender": "User",
+          "content": "How's it looking?"
+        },
+        {
+          "timestamp": "2024-11-06T16:05:00Z",
+          "sender": "Marcus Rodriguez",
+          "content": "All tests passed, but we found a minor memory leak in the logging service."
+        },
+        {
+          "timestamp": "2024-11-06T16:07:00Z",
+          "sender": "User",
+          "content": "Can we hotfix it before the release?"
+        },
+        {
+          "timestamp": "2024-11-06T16:10:00Z",
+          "sender": "Marcus Rodriguez",
+          "content": "Already on it! Should have a patch ready in an hour 💪"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "contact": {
+        "name": "Lisa Kumar",
+        "profilePicture": "https://randomuser.me/api/portraits/women/45.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T16:30:00Z",
+          "sender": "User",
+          "content": "Lisa, can you send over the Q4 marketing numbers?"
+        },
+        {
+          "timestamp": "2024-11-06T16:32:00Z",
+          "sender": "Lisa Kumar",
+          "content": "Working on the final touches now. Our social media engagement is up 25% 📈"
+        },
+        {
+          "timestamp": "2024-11-06T16:35:00Z",
+          "sender": "User",
+          "content": "That's fantastic news! What drove the increase?"
+        },
+        {
+          "timestamp": "2024-11-06T16:38:00Z",
+          "sender": "Lisa Kumar",
+          "content": "The new video campaign was a huge hit! Especially on LinkedIn."
+        },
+        {
+          "timestamp": "2024-11-06T16:40:00Z",
+          "sender": "User",
+          "content": "Perfect, include that in the report for the board meeting."
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "contact": {
+        "name": "David Kim",
+        "profilePicture": "https://randomuser.me/api/portraits/men/22.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T17:00:00Z",
+          "sender": "David Kim",
+          "content": "Just wrapped up the client presentation 🎉"
+        },
+        {
+          "timestamp": "2024-11-06T17:02:00Z",
+          "sender": "User",
+          "content": "How did it go? Were they impressed with the new features?"
+        },
+        {
+          "timestamp": "2024-11-06T17:05:00Z",
+          "sender": "David Kim",
+          "content": "They loved it! Especially the AI integration. They want to fast-track implementation."
+        },
+        {
+          "timestamp": "2024-11-06T17:08:00Z",
+          "sender": "User",
+          "content": "That's great to hear! Let's schedule a follow-up to plan the rollout."
+        },
+        {
+          "timestamp": "2024-11-06T17:10:00Z",
+          "sender": "David Kim",
+          "content": "Absolutely! I'll send a calendar invite for tomorrow morning."
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "contact": {
+        "name": "Maria González",
+        "profilePicture": "https://randomuser.me/api/portraits/women/33.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T17:30:00Z",
+          "sender": "Maria González",
+          "content": "¡Hola! The UX research results are in!"
+        },
+        {
+          "timestamp": "2024-11-06T17:32:00Z",
+          "sender": "User",
+          "content": "Perfect timing! What's the key takeaway?"
+        },
+        {
+          "timestamp": "2024-11-06T17:35:00Z",
+          "sender": "Maria González",
+          "content": "Users love the new navigation, but we need to simplify the checkout process 🛒"
+        },
+        {
+          "timestamp": "2024-11-06T17:38:00Z",
+          "sender": "User",
+          "content": "Makes sense. Can you draft some improvement proposals?"
+        },
+        {
+          "timestamp": "2024-11-06T17:40:00Z",
+          "sender": "Maria González",
+          "content": "Already started! Will share the document by EOD 📱"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "contact": {
+        "name": "Nina Patel",
+        "profilePicture": "https://randomuser.me/api/portraits/women/62.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T09:00:00Z",
+          "sender": "Nina Patel",
+          "content": "Hi! The client feedback on the prototype is in 📱"
+        },
+        {
+          "timestamp": "2024-11-06T09:05:00Z",
+          "sender": "User",
+          "content": "Great! What's their initial reaction?"
+        },
+        {
+          "timestamp": "2024-11-06T09:08:00Z",
+          "sender": "Nina Patel",
+          "content": "They're really excited about the gesture controls! But they'd like more customization options."
+        },
+        {
+          "timestamp": "2024-11-06T09:10:00Z",
+          "sender": "User",
+          "content": "Makes sense. Can you create a list of requested customization features?"
+        },
+        {
+          "timestamp": "2024-11-06T09:12:00Z",
+          "sender": "Nina Patel",
+          "content": "Already on it! I'll share the document in our next team sync 🚀"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "contact": {
+        "name": "Thomas Weber",
+        "profilePicture": "https://randomuser.me/api/portraits/men/67.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T10:15:00Z",
+          "sender": "User",
+          "content": "How's the security audit coming along?"
+        },
+        {
+          "timestamp": "2024-11-06T10:20:00Z",
+          "sender": "Thomas Weber",
+          "content": "Just finished the initial scan. Found a few minor vulnerabilities in the API endpoints 🔒"
+        },
+        {
+          "timestamp": "2024-11-06T10:25:00Z",
+          "sender": "User",
+          "content": "What's the severity level?"
+        },
+        {
+          "timestamp": "2024-11-06T10:28:00Z",
+          "sender": "Thomas Weber",
+          "content": "Low to medium. No critical issues. I'll send the detailed report in an hour."
+        },
+        {
+          "timestamp": "2024-11-06T10:30:00Z",
+          "sender": "User",
+          "content": "Perfect, we'll review it in the security team meeting tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "contact": {
+        "name": "Sophie Anderson",
+        "profilePicture": "https://randomuser.me/api/portraits/women/73.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T11:30:00Z",
+          "sender": "Sophie Anderson",
+          "content": "Just wrapped up the HR budget forecast for 2025 📊"
+        },
+        {
+          "timestamp": "2024-11-06T11:32:00Z",
+          "sender": "User",
+          "content": "How are we looking for the new hiring plans?"
+        },
+        {
+          "timestamp": "2024-11-06T11:35:00Z",
+          "sender": "Sophie Anderson",
+          "content": "We can support hiring 15 new developers and 5 designers within the current budget constraints"
+        },
+        {
+          "timestamp": "2024-11-06T11:38:00Z",
+          "sender": "User",
+          "content": "That's great news! When can we start the recruitment process?"
+        },
+        {
+          "timestamp": "2024-11-06T11:40:00Z",
+          "sender": "Sophie Anderson",
+          "content": "Job descriptions are ready! We can post them next week after final approval 👍"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "contact": {
+        "name": "Ricardo Santos",
+        "profilePicture": "https://randomuser.me/api/portraits/men/81.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T13:00:00Z",
+          "sender": "Ricardo Santos",
+          "content": "E aí! The new data center migration is complete! 🎉"
+        },
+        {
+          "timestamp": "2024-11-06T13:05:00Z",
+          "sender": "User",
+          "content": "Fantastic! Any issues during the transition?"
+        },
+        {
+          "timestamp": "2024-11-06T13:08:00Z",
+          "sender": "Ricardo Santos",
+          "content": "Only 5 minutes of downtime, way below our estimated window. All systems running smoothly now."
+        },
+        {
+          "timestamp": "2024-11-06T13:10:00Z",
+          "sender": "User",
+          "content": "That's impressive! Great work by the team 👏"
+        },
+        {
+          "timestamp": "2024-11-06T13:12:00Z",
+          "sender": "Ricardo Santos",
+          "content": "Thanks! I'll share the migration report by EOD for documentation 📝"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "contact": {
+        "name": "Yuki Tanaka",
+        "profilePicture": "https://randomuser.me/api/portraits/women/91.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T14:30:00Z",
+          "sender": "Yuki Tanaka",
+          "content": "こんにちは! The localization testing for the Japanese market is done ✨"
+        },
+        {
+          "timestamp": "2024-11-06T14:32:00Z",
+          "sender": "User",
+          "content": "Perfect timing! How's the user experience with the new features?"
+        },
+        {
+          "timestamp": "2024-11-06T14:35:00Z",
+          "sender": "Yuki Tanaka",
+          "content": "Overall very positive! But we need to adjust some icons to better match cultural preferences"
+        },
+        {
+          "timestamp": "2024-11-06T14:38:00Z",
+          "sender": "User",
+          "content": "Could you highlight the specific icons that need revision?"
+        },
+        {
+          "timestamp": "2024-11-06T14:40:00Z",
+          "sender": "Yuki Tanaka",
+          "content": "Hai! I'm preparing a detailed presentation with screenshots and suggestions 🎯"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "contact": {
+        "name": "Sophia Martin",
+        "profilePicture": "https://randomuser.me/api/portraits/women/59.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T15:00:00Z",
+          "sender": "User",
+          "content": "Sophia, do you have the files ready for review?"
+        },
+        {
+          "timestamp": "2024-11-06T15:05:00Z",
+          "sender": "Sophia Martin",
+          "content": "Yes, just sent them over."
+        },
+        {
+          "timestamp": "2024-11-06T15:10:00Z",
+          "sender": "User",
+          "content": "Perfect, I'll review and get back to you."
+        },
+        {
+          "timestamp": "2024-11-06T15:20:00Z",
+          "sender": "Sophia Martin",
+          "content": "Great, let me know if there are any changes needed."
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "contact": {
+        "name": "John Doe",
+        "profilePicture": "https://randomuser.me/api/portraits/men/53.jpg"
+      },
+      "messages": [
+        {
+          "timestamp": "2024-11-06T16:00:00Z",
+          "sender": "User",
+          "content": "John, did you see the updates on the project?"
+        },
+        {
+          "timestamp": "2024-11-06T16:05:00Z",
+          "sender": "John Doe",
+          "content": "Yes, looks good. Let's proceed."
+        },
+        {
+          "timestamp": "2024-11-06T16:15:00Z",
+          "sender": "User",
+          "content": "Alright, I'll inform the team."
+        }
+      ]
     }
   ]
 }
