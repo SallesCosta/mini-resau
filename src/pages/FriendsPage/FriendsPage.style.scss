@@ -10,15 +10,23 @@
 }
 
 .sortable-list {
-  width: 60rem;
-  padding: 2.5rem;
-  background: variables.$white;
-  border-radius: 7px;
-  padding: 3rem 2.5rem 2rem;
+  padding: 2rem;
+  background: transparent;
   box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.1);
   display: flex;
   gap: 1rem;
   flex-direction: column;
+  width: 100%;
+
+  @media (min-width: variables.$breakpoint-mobile) {
+    background: variables.$white;
+    border-radius: 7px;
+    border-radius: variables.$br-lg;
+    width: 80%;
+  }
+  @media (min-width: variables.$breakpoint-tablet) {
+    width: 60rem;
+  }
 }
 
 .item {
@@ -72,8 +80,9 @@
 
 .search-input-wrapper {
   position: relative;
+  padding: 2rem;
   border-radius: variables.$br-md;
-  width: 60rem;
+  width: 100%;
 
   &::after {
     content: "press enter";
@@ -81,8 +90,20 @@
     top: 50%;
     transform: translateY(-50%);
     right: 1rem;
+    padding: 2rem;
     color: gray;
     font-size: 1.4rem;
     pointer-events: none;
+  }
+
+  @media (min-width: variables.$breakpoint-mobile) {
+    width: 80%;
+    padding: 0;
+    &::after {
+      padding: 0;
+    }
+  }
+  @media (min-width: variables.$breakpoint-tablet) {
+    width: 60rem;
   }
 }

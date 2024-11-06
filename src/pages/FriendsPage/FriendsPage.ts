@@ -145,7 +145,7 @@ SearchInput.type = "text"
 setTimeout(() => {
   SearchInput.focus()
 }, 0)
-SearchInput.setAttribute("placeholder", "search for first name or last name")
+SearchInput.setAttribute("placeholder", "first name or last name")
 SearchInput.classList.add("search-input")
 SearchInput.addEventListener("keyup", (event) => {
   SearchInput.value === "" ? renderNames() : hideList()
