@@ -56,9 +56,17 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
   chatMessages.appendChild(body)
 
   const renderList = (firstRender: boolean) => {
-    const listItem = document.querySelector(
-      `[data-js="chat-id-${selected.id}"]`,
-    )
+    const scrollToBottom = (element: Element) => {
+      if (!element) return
+      element.scroll({
+        top: element.scrollHeight,
+        behavior: "smooth", // Isso garante o efeito suave
+      })
+    }
+
+    const list = document.querySelector(`[data-js="chat-list"]`)
+
+    const listItem = list?.querySelector(`[data-js="chat-id-${selected.id}"]`)
 
     const lastMessage = selected.messages[selected.messages.length - 1]
 
@@ -71,11 +79,6 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       listItem.appendChild(ListItemTime(lastMessage))
       listItem.addEventListener("click", () => showChat(selected))
     }
-
-    const scrollToBottom = () => {
-      body.scrollTop = body.scrollHeight
-    }
-
     body.innerHTML = ""
     data.messages.forEach((i) => {
       const f = {
@@ -85,7 +88,11 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
         image: data.image,
       }
       body.appendChild(msg(f))
-      scrollToBottom()
+
+      if (list) {
+        scrollToBottom(body)
+        scrollToBottom(list)
+      }
     })
   }
   renderList(true)
