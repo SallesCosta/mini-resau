@@ -60,21 +60,27 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       if (!element) return
       element.scroll({
         top: element.scrollHeight,
-        behavior: "smooth",
       })
+    }
+
+    const scrollToSelected = (element: Element) => {
+      if (!element) return
+      const list = document.querySelector(
+        `[data-js="chat-list"]`,
+      ) as HTMLElement
+      if (list && element instanceof HTMLElement) {
+        list.scrollTop = element.offsetTop - list.offsetTop
+      }
     }
 
     const list = document.querySelector(`[data-js="chat-list"]`)
 
     if (list) {
-      console.log("entrou")
-      // Remove a classe 'border-red' de todos os itens da lista
       const allListItems = list.querySelectorAll('[data-js^="chat-id-"]')
       allListItems.forEach((item) => {
         item.classList.remove("border-red")
       })
 
-      // Encontre o item selecionado
       const listItem = list.querySelector(`[data-js="chat-id-${selected.id}"]`)
       const lastMessage = selected.messages[selected.messages.length - 1]
 
@@ -87,8 +93,8 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
         listItem.appendChild(ListItemTime(lastMessage))
         listItem.addEventListener("click", () => showChat(selected))
 
-        // Adiciona a classe 'border-red' ao item selecionado
         listItem.classList.add("border-red")
+        scrollToSelected(listItem)
       }
     }
     body.innerHTML = ""
@@ -101,10 +107,7 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       }
       body.appendChild(msg(f))
 
-      if (list) {
-        scrollToBottom(body)
-        scrollToBottom(list)
-      }
+      scrollToBottom(body)
     })
   }
   renderList(true)

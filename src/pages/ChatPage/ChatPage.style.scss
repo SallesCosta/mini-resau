@@ -3,6 +3,7 @@
 .container {
   display: flex;
   height: calc(100dvh - 7.5rem);
+  max-height: calc(100dvh - 7.5rem);
   flex-direction: row;
   align-items: center;
   justify-content: center;
