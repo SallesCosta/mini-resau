@@ -88,7 +88,6 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
 
         listItem.classList.add("border-red")
         scrollToSelected(listItem)
-        scrollToSelected(smallListItem)
       }
     }
     body.innerHTML = ""
