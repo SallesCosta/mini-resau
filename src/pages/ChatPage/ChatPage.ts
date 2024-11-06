@@ -31,7 +31,7 @@ export const showChat = (message: ConversationDetail) => {
 
 export const EmptyState = dc("div")
 const txt = dc("b")
-txt.textContent = "<<= select a friend"
+txt.textContent = "select a friend"
 EmptyState.appendChild(txt)
 
 export const Wrapper = dc("div")
