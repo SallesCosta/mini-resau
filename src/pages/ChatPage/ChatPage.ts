@@ -41,7 +41,6 @@ Wrapper.classList.add("scrollable")
 Wrapper.appendChild(EmptyState)
 
 const container = dc("container")
-container.setAttribute("data-js", "main-container")
 container.classList.add("container")
 container.appendChild(List({ conv: chat.conversations }))
 container.appendChild(Wrapper)

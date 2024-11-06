@@ -2,28 +2,40 @@ import { dc, formatTimestamp, sanitizeInput } from "@/helpers/helpers"
 import { ConversationDetail, EmptyState, showChat } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
 import { ListItemContent, ListItemTime } from "./ListItem"
+import me from "@/helpers/me.json"
 
 type msgProps = {
   timestamp: string
   sender: string
   content: string
+  image: string
 }
 
-const msg = ({ timestamp, sender, content }: msgProps) => {
+const msg = ({ timestamp, sender, content, image }: msgProps) => {
   const msgWrapper = dc("div")
 
   msgWrapper.classList.add("baseMsg")
   msgWrapper.classList.add(sender === "User" ? "myMsg" : "friendMessage")
 
-  msgWrapper.innerHTML = `
-    <p>${content}</p>
-    <span>${formatTimestamp(timestamp)}</span>
-  `
+  const photo = sender === "User" ? me.photo : image
+
+  const userInfo = UserInfo(sender, photo)
+
+  const contentElement = dc("p")
+  contentElement.textContent = content
+
+  const timeElement = dc("span")
+  timeElement.textContent = formatTimestamp(timestamp)
+
+  msgWrapper.appendChild(userInfo)
+  msgWrapper.appendChild(contentElement)
+  msgWrapper.appendChild(timeElement)
 
   return msgWrapper
 }
 export const ChatMessages = (selected: ConversationDetail | null) => {
   const chatMessages = dc("container")
+  chatMessages.classList.add("chatMessages")
 
   if (!selected) return EmptyState
 
@@ -65,9 +77,14 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
     }
 
     body.innerHTML = ""
-
     data.messages.forEach((i) => {
-      body.appendChild(msg(i))
+      const f = {
+        sender: i.sender,
+        content: i.content,
+        timestamp: i.timestamp,
+        image: data.image,
+      }
+      body.appendChild(msg(f))
       scrollToBottom()
     })
   }
