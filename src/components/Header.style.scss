@@ -3,6 +3,7 @@
 .header-content {
   width: 100%;
   background: variables.$white;
+  height: variables.$header-height;
 
   &__link-page {
     cursor: pointer;
