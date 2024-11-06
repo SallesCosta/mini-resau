@@ -4,6 +4,7 @@
   width: 100%;
   background: variables.$white;
   height: variables.$header-height;
+  position: relative;
 
   &__link-page {
     cursor: pointer;
@@ -31,8 +32,21 @@
     gap: 3rem;
   }
 
+  &__el {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   &__wrapper {
     display: flex;
     flex-direction: column;
+  }
+  &__user-info {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
   }
 }

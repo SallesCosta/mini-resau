@@ -1,6 +1,8 @@
 import "./Header.style.scss"
 import { dc } from "@/helpers/helpers.ts"
 import { ChatIcon, FriendsIcon, HomeIcon } from "./SvgIcons.ts"
+import { UserInfo } from "@/components/UserInfo"
+import me from "@/helpers/me.json"
 
 const Wrapper = (element: HTMLElement, label: string) => {
   const labelText = dc("span")
@@ -43,8 +45,16 @@ const mobileTitle = dc("h1")
 mobileTitle.textContent = "Mini-Résau"
 mobileTitle.classList.add("header-content__title")
 
+const el = dc("div")
+el?.classList.add("header-content__el")
+el?.appendChild(mobileTitle)
+el?.appendChild(navigation)
+
+const userInfo = UserInfo(me.last_name, me.photo, me.last_name)
+userInfo?.classList.add("header-content__user-info")
+
 export const HeaderElement = dc("header")
 HeaderElement.setAttribute("data-js", "headerElement")
 HeaderElement.classList.add("header-content")
-HeaderElement?.appendChild(mobileTitle)
-HeaderElement?.appendChild(navigation)
+HeaderElement?.appendChild(el)
+HeaderElement?.appendChild(userInfo)
