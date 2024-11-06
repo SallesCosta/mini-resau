@@ -29,7 +29,7 @@ export const renderPage = ({ page }: RenderPageProps) => {
   contentContainer.appendChild(component)
 }
 
-renderPage({ page: "friends" })
+renderPage({ page: "chat" })
 
 const headerButtons = HeaderElement.querySelectorAll('[data-js="nav-btn"]')
 headerButtons.forEach((button) => {

@@ -12,6 +12,7 @@ type ListProps = {
 const ListIteUserPhoto = (m: ConversationDetail) => {
   const userPhoto = dc("img") as HTMLImageElement
   userPhoto.classList.add("list-user-photo", "display-none")
+
   userPhoto.setAttribute("data-card", "list-user-image")
   userPhoto.setAttribute("data-js", `list-user-image-${m.id}`)
 
