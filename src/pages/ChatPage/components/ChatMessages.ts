@@ -2,7 +2,6 @@ import "./ChatMessages.style.scss"
 import {
   dc,
   formatTimestamp,
-  sanitizeInput,
   scrollToBottom,
   scrollToSelected,
 } from "@/helpers/helpers"
@@ -10,6 +9,7 @@ import { ConversationDetail, EmptyState, showChat } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
 import { ListItemContent, ListItemTime } from "./ListItem"
 import me from "@/helpers/me.json"
+import { InputWrapper } from "./ChatInput"
 
 type msgProps = {
   timestamp: string
@@ -106,33 +106,7 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
   }
   renderList(true)
 
-  const ChatInput = dc("input") as HTMLInputElement
-  ChatInput.type = "text"
-  setTimeout(() => {
-    ChatInput.focus()
-  }, 0)
-  ChatInput.setAttribute("placeholder", "type your message")
-  ChatInput.classList.add("chat-input")
-  ChatInput.addEventListener("keyup", (event) => {
-    sanitizeInput(ChatInput)
-
-    if (event.key === "Enter") {
-      const timestamp = new Date().toISOString()
-      data.messages.push({
-        content: ChatInput.value,
-        sender: "User",
-        timestamp,
-      })
-
-      ChatInput.value = ""
-      renderList(false)
-    }
-  })
-
-  const InputWrapper = dc("div")
-  InputWrapper.appendChild(ChatInput)
-  InputWrapper.classList.add("chat-input-wrapper")
-  chatMessages.appendChild(InputWrapper)
+  chatMessages.appendChild(InputWrapper(data, renderList))
 
   return chatMessages
 }

@@ -1,0 +1,29 @@
+@use "@/styles/_variables";
+
+.chat-input {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border: 0.1rem solid variables.$gray;
+  outline: none;
+  background-color: variables.$white;
+  color: variables.$gray;
+  border-radius: variables.$br-md;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-wrapper {
+  position: relative;
+  border-radius: variables.$br-md;
+  width: 100%;
+
+  &::after {
+    content: "press enter";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    color: gray;
+    font-size: 1.4rem;
+    pointer-events: none;
+  }
+}
