@@ -1,8 +1,8 @@
 import { renderPage } from "@/main"
 import "./FriendsPage.style.scss"
-import { dc, sanitizeInput } from "@/helpers/helpers"
+import { dc, sanitizeInput, scrollToSelected } from "@/helpers/helpers"
 import { createSkeleton } from "@/components/Skeleton"
-import { ConversationDetail, showChat } from "../ChatPage/ChatPage"
+import { showChat } from "../ChatPage/ChatPage"
 import chat from "@/helpers/chat.json"
 
 const initSortableList = (e: DragEvent) => {
@@ -30,6 +30,7 @@ const initSortableList = (e: DragEvent) => {
 
   sortableList.insertBefore(draggingItem, nextSibling)
 }
+
 const ListItem = (firstName: string, lastName: string): HTMLLIElement => {
   const listItem = dc("li") as HTMLLIElement
   listItem.classList.add("item")
@@ -64,6 +65,22 @@ const ListItem = (firstName: string, lastName: string): HTMLLIElement => {
       })
 
       showChat(userFound)
+
+      const list = document.querySelector(`[data-js="chat-list"]`)
+      if (list) {
+        const allListItems = list.querySelectorAll('[data-js^="chat-id-"]')
+        allListItems.forEach((item) => {
+          item.classList.remove("border-red")
+        })
+
+        const listItem = list.querySelector(
+          `[data-js="chat-id-${userFound.id}"]`,
+        )
+        if (listItem) {
+          listItem.classList.add("border-red")
+          scrollToSelected(listItem)
+        }
+      }
     })
   }
   return listItem
