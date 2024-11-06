@@ -29,7 +29,7 @@ export const ListItem = (m: ConversationDetail) => {
   const userInfo = UserInfo(m.contact.name, m.contact.profilePicture)
 
   const listItem = dc("div")
-  listItem.classList.add("wrapper", "scrollable")
+  listItem.classList.add("wrapper")
   listItem.setAttribute("data-js", `chat-id-${m.id}`)
   listItem.setAttribute("data-card", `card`)
   listItem.appendChild(userInfo)

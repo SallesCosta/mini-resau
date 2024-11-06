@@ -1,3 +1,4 @@
+import "./ChatMessages.style.scss"
 import {
   dc,
   formatTimestamp,

@@ -1,3 +1,4 @@
+import "./List.style.scss"
 import {
   dc,
   scrollToSelected,
@@ -46,7 +47,7 @@ export const List = ({ conv }: ListProps) => {
 
   const list = dc("aside")
   list.setAttribute("data-js", "chat-list")
-  list.classList.add("list", "large-width")
+  list.classList.add("chat-list", "large-width")
 
   list.addEventListener("dblclick", () => {
     list.classList.toggle("large-width")
