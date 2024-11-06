@@ -7,7 +7,10 @@ export const ListItemContent = (lastMessage: {
   content: string
 }) => {
   const content = dc("p")
-  content.classList.add(lastMessage.sender === "User" ? "blue" : "red")
+  content.classList.add("listBaseMsg")
+  content.classList.add(
+    lastMessage.sender === "User" ? "myMsg" : "friendMessage",
+  )
   content.textContent = lastMessage.content
   return content
 }

@@ -48,25 +48,31 @@
   overflow-y: auto;
 }
 
+.listBaseMsg {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem;
+  border-radius: variables.$br-sm;
+}
+
 .baseMsg {
-  background: variables.$white;
   display: flex;
   flex-direction: column;
   max-width: 60%;
-  padding: 8px;
+  padding: 0.8rem;
   border-radius: variables.$br-lg;
   margin: 0.5rem;
 }
 
 .myMsg {
   align-self: flex-end;
-  background-color: #e0ffe0;
+  background-color: variables.$light-green;
   color: green;
 }
 
 .friendMessage {
   align-self: flex-start;
-  background-color: #fff0e0;
+  background-color: variables.$light-yellow;
   color: gray;
 }
 
