@@ -50,7 +50,7 @@ el?.classList.add("header-content__el")
 el?.appendChild(mobileTitle)
 el?.appendChild(navigation)
 
-const userInfo = UserInfo(me.last_name, me.photo, me.last_name)
+const userInfo = UserInfo(me.first_name, me.photo, me.last_name)
 userInfo?.classList.add("header-content__user-info")
 
 export const HeaderElement = dc("header")

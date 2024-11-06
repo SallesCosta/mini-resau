@@ -129,7 +129,7 @@
     {
       "id": "5",
       "contact": {
-        "name": "Sarah Chen",
+        "name": "Harper Chen",
         "profilePicture": "https://randomuser.me/api/portraits/women/28.jpg"
       },
       "messages": [
@@ -145,7 +145,7 @@
         },
         {
           "timestamp": "2024-11-06T15:35:00Z",
-          "sender": "Sarah Chen",
+          "sender": "Harper Chen",
           "content": "Love it! The contrast is much better now. But I have a few suggestions for the typography."
         },
         {
@@ -155,7 +155,7 @@
         },
         {
           "timestamp": "2024-11-06T15:40:00Z",
-          "sender": "Sarah Chen",
+          "sender": "Harper Chen",
           "content": "Perfect timing, I'm free now! 📞"
         }
       ]
@@ -163,13 +163,13 @@
     {
       "id": "6",
       "contact": {
-        "name": "Marcus Rodriguez",
+        "name": "Jack Rodriguez",
         "profilePicture": "https://randomuser.me/api/portraits/men/32.jpg"
       },
       "messages": [
         {
           "timestamp": "2024-11-06T16:00:00Z",
-          "sender": "Marcus Rodriguez",
+          "sender": "Jack Rodriguez",
           "content": "Quick update on the backend deployment 🚀"
         },
         {
@@ -179,7 +179,7 @@
         },
         {
           "timestamp": "2024-11-06T16:05:00Z",
-          "sender": "Marcus Rodriguez",
+          "sender": "Jack Rodriguez",
           "content": "All tests passed, but we found a minor memory leak in the logging service."
         },
         {
@@ -189,7 +189,7 @@
         },
         {
           "timestamp": "2024-11-06T16:10:00Z",
-          "sender": "Marcus Rodriguez",
+          "sender": "Jack Rodriguez",
           "content": "Already on it! Should have a patch ready in an hour 💪"
         }
       ]
@@ -197,7 +197,7 @@
     {
       "id": "7",
       "contact": {
-        "name": "Lisa Kumar",
+        "name": "James Williams",
         "profilePicture": "https://randomuser.me/api/portraits/women/45.jpg"
       },
       "messages": [
@@ -208,7 +208,7 @@
         },
         {
           "timestamp": "2024-11-06T16:32:00Z",
-          "sender": "Lisa Kumar",
+          "sender": "James Williams",
           "content": "Working on the final touches now. Our social media engagement is up 25% 📈"
         },
         {
@@ -218,7 +218,7 @@
         },
         {
           "timestamp": "2024-11-06T16:38:00Z",
-          "sender": "Lisa Kumar",
+          "sender": "James Williams",
           "content": "The new video campaign was a huge hit! Especially on LinkedIn."
         },
         {
@@ -231,13 +231,13 @@
     {
       "id": "8",
       "contact": {
-        "name": "David Kim",
+        "name": "David Williams",
         "profilePicture": "https://randomuser.me/api/portraits/men/22.jpg"
       },
       "messages": [
         {
           "timestamp": "2024-11-06T17:00:00Z",
-          "sender": "David Kim",
+          "sender": "David Williams",
           "content": "Just wrapped up the client presentation 🎉"
         },
         {
@@ -247,7 +247,7 @@
         },
         {
           "timestamp": "2024-11-06T17:05:00Z",
-          "sender": "David Kim",
+          "sender": "David Williams",
           "content": "They loved it! Especially the AI integration. They want to fast-track implementation."
         },
         {
@@ -257,7 +257,7 @@
         },
         {
           "timestamp": "2024-11-06T17:10:00Z",
-          "sender": "David Kim",
+          "sender": "David Williams",
           "content": "Absolutely! I'll send a calendar invite for tomorrow morning."
         }
       ]
@@ -265,13 +265,13 @@
     {
       "id": "9",
       "contact": {
-        "name": "Maria González",
+        "name": "Maria Jones",
         "profilePicture": "https://randomuser.me/api/portraits/women/33.jpg"
       },
       "messages": [
         {
           "timestamp": "2024-11-06T17:30:00Z",
-          "sender": "Maria González",
+          "sender": "Maria Jones",
           "content": "¡Hola! The UX research results are in!"
         },
         {
@@ -281,7 +281,7 @@
         },
         {
           "timestamp": "2024-11-06T17:35:00Z",
-          "sender": "Maria González",
+          "sender": "Maria Jones",
           "content": "Users love the new navigation, but we need to simplify the checkout process 🛒"
         },
         {
@@ -291,7 +291,7 @@
         },
         {
           "timestamp": "2024-11-06T17:40:00Z",
-          "sender": "Maria González",
+          "sender": "Maria Jones",
           "content": "Already started! Will share the document by EOD 📱"
         }
       ]
@@ -299,13 +299,13 @@
     {
       "id": "16",
       "contact": {
-        "name": "Nina Patel",
+        "name": "Nina Davis",
         "profilePicture": "https://randomuser.me/api/portraits/women/62.jpg"
       },
       "messages": [
         {
           "timestamp": "2024-11-06T09:00:00Z",
-          "sender": "Nina Patel",
+          "sender": "Nina Davis",
           "content": "Hi! The client feedback on the prototype is in 📱"
         },
         {
@@ -315,7 +315,7 @@
         },
         {
           "timestamp": "2024-11-06T09:08:00Z",
-          "sender": "Nina Patel",
+          "sender": "Nina Davis",
           "content": "They're really excited about the gesture controls! But they'd like more customization options."
         },
         {
@@ -325,7 +325,7 @@
         },
         {
           "timestamp": "2024-11-06T09:12:00Z",
-          "sender": "Nina Patel",
+          "sender": "Nina Davis",
           "content": "Already on it! I'll share the document in our next team sync 🚀"
         }
       ]
@@ -401,13 +401,13 @@
     {
       "id": "19",
       "contact": {
-        "name": "Ricardo Santos",
+        "name": "Isabella Moore",
         "profilePicture": "https://randomuser.me/api/portraits/men/81.jpg"
       },
       "messages": [
         {
           "timestamp": "2024-11-06T13:00:00Z",
-          "sender": "Ricardo Santos",
+          "sender": "Isabella Moore",
           "content": "E aí! The new data center migration is complete! 🎉"
         },
         {
@@ -417,7 +417,7 @@
         },
         {
           "timestamp": "2024-11-06T13:08:00Z",
-          "sender": "Ricardo Santos",
+          "sender": "Isabella Moore",
           "content": "Only 5 minutes of downtime, way below our estimated window. All systems running smoothly now."
         },
         {
@@ -427,7 +427,7 @@
         },
         {
           "timestamp": "2024-11-06T13:12:00Z",
-          "sender": "Ricardo Santos",
+          "sender": "Isabella Moore",
           "content": "Thanks! I'll share the migration report by EOD for documentation 📝"
         }
       ]
@@ -435,13 +435,13 @@
     {
       "id": "20",
       "contact": {
-        "name": "Yuki Tanaka",
+        "name": "Lucas Taylor",
         "profilePicture": "https://randomuser.me/api/portraits/women/91.jpg"
       },
       "messages": [
         {
           "timestamp": "2024-11-06T14:30:00Z",
-          "sender": "Yuki Tanaka",
+          "sender": "Lucas Taylor",
           "content": "こんにちは! The localization testing for the Japanese market is done ✨"
         },
         {
@@ -451,7 +451,7 @@
         },
         {
           "timestamp": "2024-11-06T14:35:00Z",
-          "sender": "Yuki Tanaka",
+          "sender": "Lucas Taylor",
           "content": "Overall very positive! But we need to adjust some icons to better match cultural preferences"
         },
         {
@@ -461,7 +461,7 @@
         },
         {
           "timestamp": "2024-11-06T14:40:00Z",
-          "sender": "Yuki Tanaka",
+          "sender": "Lucas Taylor",
           "content": "Hai! I'm preparing a detailed presentation with screenshots and suggestions 🎯"
         }
       ]
@@ -469,7 +469,7 @@
     {
       "id": "14",
       "contact": {
-        "name": "Sophia Martin",
+        "name": "Mia Anderson",
         "profilePicture": "https://randomuser.me/api/portraits/women/59.jpg"
       },
       "messages": [
@@ -480,7 +480,7 @@
         },
         {
           "timestamp": "2024-11-06T15:05:00Z",
-          "sender": "Sophia Martin",
+          "sender": "Mia Anderson",
           "content": "Yes, just sent them over."
         },
         {
@@ -490,7 +490,7 @@
         },
         {
           "timestamp": "2024-11-06T15:20:00Z",
-          "sender": "Sophia Martin",
+          "sender": "Mia Anderson",
           "content": "Great, let me know if there are any changes needed."
         }
       ]
@@ -498,7 +498,7 @@
     {
       "id": "15",
       "contact": {
-        "name": "John Doe",
+        "name": "Alexander Thomas",
         "profilePicture": "https://randomuser.me/api/portraits/men/53.jpg"
       },
       "messages": [
@@ -509,7 +509,7 @@
         },
         {
           "timestamp": "2024-11-06T16:05:00Z",
-          "sender": "John Doe",
+          "sender": "Alexander Thomas",
           "content": "Yes, looks good. Let's proceed."
         },
         {
