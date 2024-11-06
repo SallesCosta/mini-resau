@@ -1,6 +1,7 @@
 import { dc, formatTimestamp, sanitizeInput } from "@/helpers/helpers"
-import { ConversationDetail } from "../ChatPage"
+import { ConversationDetail, EmptyState, showChat } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
+import { ListItemContent, ListItemTime } from "./ListItem"
 
 type msgProps = {
   timestamp: string
@@ -21,7 +22,6 @@ const msg = ({ timestamp, sender, content }: msgProps) => {
 
   return msgWrapper
 }
-
 export const ChatMessages = (selected: ConversationDetail | null) => {
   const chatMessages = dc("container")
 
@@ -44,37 +44,20 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
   chatMessages.appendChild(body)
 
   const renderList = (firstRender: boolean) => {
-    console.log("foi :")
     const listItem = document.querySelector(
       `[data-js="chat-id-${selected.id}"]`,
     )
 
-    const Content = dc("p")
-
     const lastMessage = selected.messages[selected.messages.length - 1]
 
-    Content.classList.add(lastMessage.sender === "User" ? "blue" : "red")
-    Content.textContent = lastMessage.content
-
-    const Time = dc("span")
-    Time.classList.add("time")
-    const t = formatTimestamp(lastMessage.timestamp)
-    Time.textContent = t
-
     if (listItem && !firstRender) {
-      const allCards = document.querySelectorAll('[data-card="card"]')
-      allCards.forEach((c) => {
-        if (c.classList.contains("display-none")) {
-          return
-        } else {
-          listItem.innerHTML = ""
-          listItem.appendChild(
-            UserInfo(selected.contact.name, selected.contact.profilePicture),
-          )
-          listItem.appendChild(Content)
-          listItem.appendChild(Time)
-        }
-      })
+      listItem.innerHTML = ""
+      listItem.appendChild(
+        UserInfo(selected.contact.name, selected.contact.profilePicture),
+      )
+      listItem.appendChild(ListItemContent(lastMessage))
+      listItem.appendChild(ListItemTime(lastMessage))
+      listItem.addEventListener("click", () => showChat(selected))
     }
 
     const scrollToBottom = () => {
@@ -120,9 +103,3 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
 
   return chatMessages
 }
-
-const txt = dc("b")
-txt.textContent = "<<= select a friend"
-
-export const EmptyState = dc("div")
-EmptyState.appendChild(txt)

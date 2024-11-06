@@ -138,3 +138,19 @@
 .display-none {
   display: none;
 }
+
+.list-user-photo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1rem 0;
+  background: variables.$white;
+  cursor: pointer;
+  padding: 5px;
+
+  &:hover {
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.1);
+    border: 1px solid variables.$gray;
+  }
+}
