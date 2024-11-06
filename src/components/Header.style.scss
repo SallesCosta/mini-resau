@@ -42,11 +42,17 @@
     display: flex;
     flex-direction: column;
   }
+
   &__user-info {
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    transform: translateX(-50%);
-    transform: translateY(-50%);
+    opacity: 0;
+
+    @media (min-width: variables.$breakpoint-mobile) {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      opacity: 1;
+      transform: translateX(-50%);
+      transform: translateY(-50%);
+    }
   }
 }
