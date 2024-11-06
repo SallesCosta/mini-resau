@@ -208,6 +208,9 @@
   }
 }
 
+.bg-red {
+  background: variables.$red;
+}
 .border-red {
   border: 3px solid variables.$red;
 }

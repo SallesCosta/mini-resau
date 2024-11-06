@@ -1,4 +1,10 @@
-import { dc, formatTimestamp, sanitizeInput } from "@/helpers/helpers"
+import {
+  dc,
+  formatTimestamp,
+  sanitizeInput,
+  scrollToBottom,
+  scrollToSelected,
+} from "@/helpers/helpers"
 import { ConversationDetail, EmptyState, showChat } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
 import { ListItemContent, ListItemTime } from "./ListItem"
@@ -56,23 +62,6 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
   chatMessages.appendChild(body)
 
   const renderList = (firstRender: boolean) => {
-    const scrollToBottom = (element: Element) => {
-      if (!element) return
-      element.scroll({
-        top: element.scrollHeight,
-      })
-    }
-
-    const scrollToSelected = (element: Element) => {
-      if (!element) return
-      const list = document.querySelector(
-        `[data-js="chat-list"]`,
-      ) as HTMLElement
-      if (list && element instanceof HTMLElement) {
-        list.scrollTop = element.offsetTop - list.offsetTop
-      }
-    }
-
     const list = document.querySelector(`[data-js="chat-list"]`)
 
     if (list) {
@@ -82,9 +71,13 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       })
 
       const listItem = list.querySelector(`[data-js="chat-id-${selected.id}"]`)
+      const smallListItem = list.querySelector(
+        `[data-js="list-user-image-${selected.id}"]`,
+      )
+
       const lastMessage = selected.messages[selected.messages.length - 1]
 
-      if (listItem && !firstRender) {
+      if (listItem && !firstRender && smallListItem) {
         listItem.innerHTML = ""
         listItem.appendChild(
           UserInfo(selected.contact.name, selected.contact.profilePicture),
@@ -95,6 +88,7 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
 
         listItem.classList.add("border-red")
         scrollToSelected(listItem)
+        scrollToSelected(smallListItem)
       }
     }
     body.innerHTML = ""

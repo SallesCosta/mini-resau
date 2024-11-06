@@ -102,3 +102,18 @@ export function sortConversationsByTimestamp(
     ),
   }))
 }
+
+export const scrollToBottom = (element: Element) => {
+  if (!element) return
+  element.scroll({
+    top: element.scrollHeight,
+  })
+}
+
+export const scrollToSelected = (element: Element) => {
+  if (!element) return
+  const list = document.querySelector(`[data-js="chat-list"]`) as HTMLElement
+  if (list && element instanceof HTMLElement) {
+    list.scrollTop = element.offsetTop - list.offsetTop
+  }
+}
