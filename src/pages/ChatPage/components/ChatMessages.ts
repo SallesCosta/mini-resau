@@ -60,24 +60,36 @@ export const ChatMessages = (selected: ConversationDetail | null) => {
       if (!element) return
       element.scroll({
         top: element.scrollHeight,
-        behavior: "smooth", // Isso garante o efeito suave
+        behavior: "smooth",
       })
     }
 
     const list = document.querySelector(`[data-js="chat-list"]`)
 
-    const listItem = list?.querySelector(`[data-js="chat-id-${selected.id}"]`)
+    if (list) {
+      console.log("entrou")
+      // Remove a classe 'border-red' de todos os itens da lista
+      const allListItems = list.querySelectorAll('[data-js^="chat-id-"]')
+      allListItems.forEach((item) => {
+        item.classList.remove("border-red")
+      })
 
-    const lastMessage = selected.messages[selected.messages.length - 1]
+      // Encontre o item selecionado
+      const listItem = list.querySelector(`[data-js="chat-id-${selected.id}"]`)
+      const lastMessage = selected.messages[selected.messages.length - 1]
 
-    if (listItem && !firstRender) {
-      listItem.innerHTML = ""
-      listItem.appendChild(
-        UserInfo(selected.contact.name, selected.contact.profilePicture),
-      )
-      listItem.appendChild(ListItemContent(lastMessage))
-      listItem.appendChild(ListItemTime(lastMessage))
-      listItem.addEventListener("click", () => showChat(selected))
+      if (listItem && !firstRender) {
+        listItem.innerHTML = ""
+        listItem.appendChild(
+          UserInfo(selected.contact.name, selected.contact.profilePicture),
+        )
+        listItem.appendChild(ListItemContent(lastMessage))
+        listItem.appendChild(ListItemTime(lastMessage))
+        listItem.addEventListener("click", () => showChat(selected))
+
+        // Adiciona a classe 'border-red' ao item selecionado
+        listItem.classList.add("border-red")
+      }
     }
     body.innerHTML = ""
     data.messages.forEach((i) => {
