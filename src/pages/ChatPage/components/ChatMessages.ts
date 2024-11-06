@@ -8,8 +8,8 @@ import {
 import { ConversationDetail, EmptyState, showChat } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
 import { ListItemContent, ListItemTime } from "./ListItem"
-import me from "@/helpers/me.json"
 import { InputWrapper } from "./ChatInput"
+import me from "@/helpers/me.json"
 
 type msgProps = {
   timestamp: string
@@ -40,6 +40,7 @@ const msg = ({ timestamp, sender, content, image }: msgProps) => {
 
   return msgWrapper
 }
+
 export const ChatMessages = (selected: ConversationDetail | null) => {
   const chatMessages = dc("container")
   chatMessages.classList.add("chatMessages")

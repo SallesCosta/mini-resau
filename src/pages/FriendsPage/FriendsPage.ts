@@ -1,9 +1,10 @@
 import { renderPage } from "@/main"
 import "./FriendsPage.style.scss"
-import { dc, sanitizeInput, scrollToSelected } from "@/helpers/helpers"
+import { dc, scrollToSelected } from "@/helpers/helpers"
 import { createSkeleton } from "@/components/Skeleton"
 import { showChat } from "../ChatPage/ChatPage"
 import chat from "@/helpers/chat.json"
+import { InputWrapper } from "./components/SearchInput"
 
 const initSortableList = (e: DragEvent) => {
   e.preventDefault()
@@ -89,7 +90,8 @@ const ListItem = (firstName: string, lastName: string): HTMLLIElement => {
 const FriendsList = dc("ul")
 FriendsList.setAttribute("data-js", "friend-list")
 FriendsList.classList.add("sortable-list")
-const renderNames = () => {
+
+export const renderNames = () => {
   FriendsList.innerHTML = ""
   //Pas besoin de JSON (amis codés en dur). (email)
 
@@ -140,49 +142,8 @@ const hideList = () => {
   }
 }
 
-const SearchInput = dc("input") as HTMLInputElement
-SearchInput.type = "text"
-setTimeout(() => {
-  SearchInput.focus()
-}, 0)
-SearchInput.setAttribute("placeholder", "first name or last name")
-SearchInput.classList.add("search-input")
-SearchInput.addEventListener("keyup", (event) => {
-  SearchInput.value === "" ? renderNames() : hideList()
-  sanitizeInput(SearchInput)
-  const searchTerm = SearchInput.value.toLowerCase()
-
-  if (event.key === "Enter") {
-    const allFriends = document.querySelectorAll<HTMLLIElement>(
-      '[data-js="friend-item"]',
-    )
-    const friendsArray = Array.from(allFriends)
-
-    friendsArray.forEach((friend) => {
-      const [firstName, lastName] = friend.innerText.toLowerCase().split(" ")
-      const isMatch =
-        firstName.includes(searchTerm) || lastName.includes(searchTerm)
-
-      if (searchTerm === "") {
-        friend.classList.remove("display-none")
-      } else {
-        friend.classList.toggle("display-none", !isMatch)
-        const skeletons = document.querySelectorAll(
-          '[data-js="skeletonElement"]',
-        )
-        if (searchTerm !== "") {
-          skeletons.forEach((skeleton) => skeleton.remove())
-        }
-      }
-    })
-  }
-})
-const InputWrapper = dc("div")
-InputWrapper.appendChild(SearchInput)
-InputWrapper.classList.add("search-input-wrapper")
-
 export const FriendsPage = dc("div")
 FriendsPage.setAttribute("data-js", "friends-page")
 FriendsPage.classList.add("friends-page")
-FriendsPage.appendChild(InputWrapper)
+FriendsPage.appendChild(InputWrapper({ renderNames, hideList }))
 FriendsPage.appendChild(FriendsList)

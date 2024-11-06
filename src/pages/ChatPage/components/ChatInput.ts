@@ -1,3 +1,4 @@
+import "./ChatInput.style.scss"
 import { dc, sanitizeInput } from "@/helpers/helpers"
 
 export const InputWrapper = (
