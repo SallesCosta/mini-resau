@@ -35,7 +35,14 @@ export const ListItem = (m: ConversationDetail) => {
   listItem.appendChild(userInfo)
   listItem.appendChild(ListItemContent(lastMessage))
   listItem.appendChild(ListItemTime(lastMessage))
-  listItem.addEventListener("click", () => showChat(m))
+  listItem.addEventListener("click", () => {
+    showChat(m)
+    const allListItems = document.querySelectorAll('[data-js^="chat-id-"]')
+    allListItems.forEach((item) => {
+      item.classList.remove("border-red")
+    })
+    listItem.classList.add("border-red")
+  })
 
   return listItem
 }
