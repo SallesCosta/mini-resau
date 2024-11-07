@@ -49,33 +49,7 @@ export const List = ({ conv }: ListProps) => {
   list.setAttribute("data-js", "chat-list")
   list.classList.add("chat-list", "large-width")
 
-  list.addEventListener("dblclick", () => {
-    list.classList.toggle("large-width")
-    list.classList.toggle("small-width")
-
-    hideCards()
-  })
-
   renderItems()
 
   return list
-}
-
-export const hideCards = () => {
-  const listItems = document.querySelectorAll(
-    '[data-card="card"]',
-  ) as NodeListOf<HTMLElement>
-  const items = Array.from(listItems)
-  items.forEach((i) => {
-    i.classList.toggle("display-none")
-  })
-
-  const userPhoto = document.querySelectorAll(
-    '[data-card="list-user-image"]',
-  ) as NodeListOf<HTMLElement>
-  const photo = Array.from(userPhoto)
-
-  photo.forEach((p) => {
-    p.classList.toggle("display-none")
-  })
 }
