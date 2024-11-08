@@ -10,7 +10,6 @@
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Sass](https://sass-lang.com/)
--
 
 ## 🛠️ Install Dependencies
 
@@ -28,5 +27,5 @@ yarn install
 ```
 
 ## Usage
-https://github.com/user-attachments/assets/44baec81-103e-49fa-b173-e24635ef491e
 
+https://github.com/user-attachments/assets/44baec81-103e-49fa-b173-e24635ef491e
