@@ -1,8 +1,9 @@
 import "./ChatInput.style.scss"
 import { dc, sanitizeInput } from "@/helpers/helpers"
+import { dataProps } from "./ChatMessages"
 
 export const InputWrapper = (
-  data: any,
+  data: dataProps,
   renderList: (firstRender: boolean) => void,
 ) => {
   const ChatInput = dc("input") as HTMLInputElement

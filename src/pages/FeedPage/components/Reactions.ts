@@ -5,9 +5,9 @@ import { dc } from "../../../helpers/helpers"
 
 export const ReactionsWrapper = (
   postId: number,
-  renderComments: any,
-  firstElement: any,
-  secondElement: any,
+  renderComments: () => void,
+  firstElement: HTMLDivElement,
+  secondElement: HTMLInputElement,
 ) => {
   const addCommentButton = () => {
     const button = dc("button")

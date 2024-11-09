@@ -5,7 +5,7 @@ import {
   scrollToBottom,
   scrollToSelected,
 } from "@/helpers/helpers"
-import { ConversationDetail, EmptyState, showChat } from "../ChatPage"
+import { ConversationDetail, EmptyState, Message, showChat } from "../ChatPage"
 import { UserInfo } from "@/components/UserInfo"
 import { ListItemContent, ListItemTime } from "./ListItem"
 import { InputWrapper } from "./ChatInput"
@@ -41,13 +41,19 @@ const msg = ({ timestamp, sender, content, image }: msgProps) => {
   return msgWrapper
 }
 
+export type dataProps = {
+  name: string
+  image: string
+  messages: Message[]
+}
+
 export const ChatMessages = (selected: ConversationDetail | null) => {
   const chatMessages = dc("container")
   chatMessages.classList.add("chatMessages")
 
   if (!selected) return EmptyState
 
-  const data = {
+  const data: dataProps = {
     name: selected.contact.name,
     image: selected.contact.profilePicture,
     messages: selected.messages,
