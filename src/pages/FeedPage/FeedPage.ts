@@ -1,3 +1,4 @@
+// Importation des styles et composants nécessaires
 import "./FeedPage.style.scss"
 import "./components/Comment.style.scss"
 import "@/components/Modal.style.scss"
@@ -9,12 +10,14 @@ import { Input } from "./components/Input"
 import { dc, userData } from "@/helpers/helpers"
 import { Modal } from "@/components/Modal"
 
+// Interface pour définir la structure d'une réponse à un commentaire
 export interface Reply {
   reply_id: string
   reply_author_id: string
   content: string
 }
 
+// Interface pour définir la structure d'un commentaire
 export interface CommentProps {
   comment_id: string
   comment_author_id: string
@@ -25,6 +28,7 @@ export interface CommentProps {
   replies: Reply[]
 }
 
+// Interface pour définir la structure d'un auteur de post
 interface AuthorProps {
   author_id: string
   first_name: string
@@ -32,6 +36,7 @@ interface AuthorProps {
   photo: string
 }
 
+// Interface pour définir la structure complète d'un post
 export interface PostProps {
   post_id: number
   image: string
@@ -40,6 +45,7 @@ export interface PostProps {
   comments: CommentProps[]
 }
 
+// Fonction pour créer une carte de post avec tous ses éléments
 const createCard = (post: PostProps) => {
   const CommentsList = dc("section")
   CommentsList.classList.add("feed-page__comments-wrapper")
@@ -49,6 +55,7 @@ const createCard = (post: PostProps) => {
   Card.setAttribute("data-author", post.author.author_id)
   Card.classList.add("feed-page__card")
 
+  // Fonction pour rafraîchir l'affichage des commentaires
   const renderComments = () => {
     CommentsList.innerHTML = ""
     post.comments.map((commentData) => {
@@ -56,6 +63,7 @@ const createCard = (post: PostProps) => {
     })
   }
 
+  // Création des composants d'interaction (input, réactions, etc.)
   const { InputWrapper, CommentInput } = Input({
     userData,
     post,
@@ -78,8 +86,10 @@ const createCard = (post: PostProps) => {
     author: post.author,
   }
 
+  // Création des éléments du post (info auteur, contenu, image)
   const { AuthorInfo, PostContent, PostImg } = Post(postData)
 
+  // Assemblage de tous les éléments de la carte
   Card.appendChild(AuthorInfo)
   if (post.image !== "") {
     Card.appendChild(PostImg)
@@ -93,11 +103,13 @@ const createCard = (post: PostProps) => {
   return Card
 }
 
+// Création et configuration de la page principale du feed
 export const FeedPage = dc("div")
 FeedPage.setAttribute("data-js", "feed-page")
 FeedPage.classList.add("feed-page")
 FeedPage.appendChild(Modal)
 
+// Création et ajout de toutes les cartes de posts à la page
 postList.map((post) => {
   const Card = createCard(post)
   FeedPage.appendChild(Card)
